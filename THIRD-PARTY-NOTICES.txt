@@ -1,0 +1,13 @@
+PDF-Anhänge für Edge – Lizenzumfang
+
+Eigener Erweiterungscode und eigene Dokumentation: MIT; siehe LICENSE.
+Copyright (c) 2026 PDF-Anhänge für Edge contributors.
+
+Mozilla PDF.js 5.4.394, einschließlich lokaler Anpassungen:
+Copyright Mozilla Foundation und weitere Mitwirkende.
+Apache License, Version 2.0; siehe extension/vendor/PDFJS-LICENSE.txt.
+Die MIT-Lizenz ersetzt diese Bibliothekslizenz nicht.
+
+Die lokalen Änderungen sind in extension/PDFJS-MODIFICATIONS.txt beschrieben und im
+PDF.js-Worker kenntlich gemacht. Ursprüngliche Copyright- und Lizenzhinweise
+bleiben in den Bibliotheksdateien enthalten.

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+native/bin/
+*.log
+.env
+.env.*
+!.env.example
+*.user
+.DS_Store
+Thumbs.db

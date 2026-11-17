@@ -1,0 +1,22 @@
+Eigencode: MIT. PDF.js einschließlich Anpassungen: Apache 2.0.
+
+Node.js 24 installieren, dann:
+npm ci --ignore-scripts
+npm run build
+npm run fixtures
+npm test
+npm run test:store
+npm run build:native
+npm run build:store
+
+Der Store-Build erstellt die Ausgabeverzeichnisse. Danach unter Windows
+die beiden ZIP-Pakete erstellen:
+powershell.exe -NoProfile -File .\store\archive.ps1 -ReleaseRoot .\dist\Edge-Store-Veroeffentlichung-1.1.1
+
+Herausgeberangaben stehen in store/publisher.json. Das Entwicklungsmanifest
+enthält einen öffentlichen key für reproduzierbare Tests; der Store-Build
+entfernt diesen nur in seiner Ausgabekopie. Kein privater Schlüssel liegt bei.
+
+Der vollständige Windows-Test npm run test:edge öffnet ein getrenntes temporäres
+Edge-Profil und einen synthetischen Textanhang. Er ist kein Nachweis einer
+Store-Zertifizierung und verändert das normale Edge-Profil nicht.

@@ -1,0 +1,35 @@
+Single purpose
+Show embedded files from a PDF alongside Edge's existing PDF viewer, save a selected attachment locally, and open it with its associated Windows application after an explicit user click.
+
+sidePanel
+Hosts the attachment list next to the existing PDF viewer. The extension does not replace the PDF viewer or redirect PDF responses.
+
+tabs
+Reads the active tab's URL and observes tab activation and navigation to associate the attachment list with the current document and remove stale results. It does not request the history API or build a browsing-history database.
+
+storage
+Uses chrome.storage.session to keep the detected PDF URL for the corresponding tab. Entries are removed when the tab closes or when a subsequent main-frame response is not a PDF. This is session memory, not storage.sync. PDF contents and PDF passwords are not written to this storage.
+
+webRequest
+Observes response headers for HTTP/HTTPS main-frame navigations to recognize application/pdf responses, including document URLs that do not end in .pdf. It uses neither webRequestBlocking nor request modification and does not inspect normal web-page bodies. Only a recognized PDF URL is kept in session storage for that tab.
+
+downloads
+Saves only an attachment explicitly selected by the user, monitors completion of that download, and can show its location. Downloads are placed under PDF-Anhaenge in the user's download directory. The extension's runtime queries download items by their own download ID; it does not enumerate the complete download history.
+
+downloads.open
+Opens a completed attachment download directly from a user click in the sidebar. Download and opening are separate steps so that the opening action retains the required user gesture. Browser safety checks and confirmation dialogs are not suppressed.
+
+file:///*
+Reads a local PDF from the current tab without asking the user to select the same file a second time. This is subject to Edge's Allow access to file URLs setting. Without that grant the extension offers an explicit local PDF file picker instead.
+
+http://*/* and https://*/*
+Users can open PDFs on arbitrary websites, intranet servers or authenticated portals. The extension needs host access to recognize PDF response headers and fetch the current PDF from its original URL. Domain restrictions would prevent the advertised cross-site PDF attachment feature from working on documents opened by the user. Web-PDF fetches may include the browser's existing authentication or cookies for the origin. The extension has no cookies permission, does not read cookie databases and never uploads the PDF to a publisher service. No content scripts are declared or injected.
+
+Remote code
+No remotely hosted extension code is used. JavaScript, PDF.js and its worker are included in the package. The only document fetches are PDF data, not executable extension code. Dynamic JavaScript evaluation in PDF.js is disabled with isEvalSupported: false; XFA processing is disabled. The extension does not execute scripts embedded in documents to open attachments. An optional, separately installed Windows executable provides Native Messaging for UNC PDF reading; it is disclosed to users and is not downloaded or executed as extension-page code.
+
+nativeMessaging
+Optional, requested only when the user clicks Netzwerkzugriff aktivieren. It connects to the separately installed, read-only Windows helper de.pdfanhaenge.network_reader to read the current tab's UNC PDF URL, which Edge otherwise refuses to read from the extension. The helper accepts only exact allowed extension origins, validates canonical UNC PDF paths, rejects device/pipe/IPC/ADS and local-drive paths, checks a PDF header, and enforces a 100 MiB limit and process deadline. It exposes no command execution, file writing, attachment opening or general filesystem endpoint. PDF bytes pass in bounded messages through local native-messaging pipes. Windows file permissions remain in force. No external messages or content scripts can forward webpage-supplied requests to it.
+
+Data use
+Document bytes, embedded filenames, descriptions and attachment bytes are processed on the user's device. The active document URL and PDF response detection are used only to identify and load the current document. With optional network support enabled, the current UNC PDF URL and its bytes pass locally between Edge and the Windows helper. Windows reads the share with the current user's permissions, which may cause an additional SMB request/authentication to that server. A PDF password, if requested, is used transiently to decrypt that document locally and is not persisted by the extension or sent to the helper. There is no telemetry, advertising, analytics, sale of data, publisher backend, tracking or user account. The original website can receive another normal document request, and a user-chosen Windows application receives a saved attachment when the user opens it.

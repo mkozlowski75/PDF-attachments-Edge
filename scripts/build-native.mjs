@@ -1,0 +1,20 @@
+import { execFileSync } from "node:child_process";
+import { mkdir, cp, readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
+import path from "node:path";
+const root = fileURLToPath(new URL("../", import.meta.url));
+const out = path.join(root, "native/bin");
+await mkdir(out, { recursive: true });
+const compiler = path.join(process.env.WINDIR || "C:\\Windows", "Microsoft.NET/Framework64/v4.0.30319/csc.exe");
+execFileSync(compiler, ["/nologo", "/target:exe", "/platform:anycpu", "/optimize+", "/reference:System.Web.Extensions.dll", "/out:" + path.join(out, "PdfNetworkHost.exe"), path.join(root, "native/PdfNetworkHost.cs")], { stdio: "inherit", windowsHide: true });
+await cp(path.join(root, "native/PdfNetworkHost.exe.config"), path.join(out, "PdfNetworkHost.exe.config"));
+await cp(path.join(root, "LICENSE"), path.join(out, "LICENSE"));
+const manifest = JSON.parse(await readFile(path.join(root, "extension/manifest.json"), "utf8"));
+const id = createHash("sha256").update(Buffer.from(manifest.key, "base64")).digest("hex").slice(0, 32)
+  .split("").map(hex => String.fromCharCode(97 + parseInt(hex, 16))).join("");
+await writeFile(path.join(out, "Installieren.cmd"), `@echo off\r\n"%~dp0PdfNetworkHost.exe" --install ${id} %*\r\nif errorlevel 1 (echo Installation fehlgeschlagen.) else (echo Danach in der Seitenleiste einmal Netzwerkzugriff aktivieren.)\r\npause\r\n`);
+await writeFile(path.join(out, "Entfernen.cmd"), '@echo off\r\n"%~dp0PdfNetworkHost.exe" --uninstall\r\npause\r\n');
+await writeFile(path.join(out, "Installieren-mit-ID.cmd"), '@echo off\r\n"%~dp0PdfNetworkHost.exe" --install\r\npause\r\n');
+await writeFile(path.join(out, "LIES-MICH.txt"), `Windows-Netzwerk-Helfer fuer PDF-Anhaenge fuer Edge\r\n\r\nFuer die lokale Entwicklungsversion: Installieren.cmd starten.\r\nFuer eine andere/Store-Erweiterungs-ID: Installieren-mit-ID.cmd starten\r\nund die genaue ID aus edge://extensions einfuegen.\r\n\r\nNur fuer den aktuellen Windows-Benutzer; keine Administratorrechte.\r\nVoraussetzung: .NET Framework 4.8 unter Windows 10/11.\r\nDie Installation kopiert die Dateien nach LocalAppData\\PDF-Anhaenge-Edge\\Netzwerk-Helfer\r\nund registriert ausschliesslich diesen Native-Messaging-Host unter HKCU.\r\nDer Helfer akzeptiert nur die genau angegebenen Erweiterungs-IDs.\r\n\r\nDanach die Erweiterung auf Version 1.1.0 aktualisieren/neu laden und\r\nin ihrer Seitenleiste einmal Netzwerkzugriff aktivieren.\r\nDatei-URL-Zugriff muss ebenfalls erlaubt sein. Danach werden Netzwerk-PDFs\r\nautomatisch untersucht, ohne dass jede Datei erneut ausgewaehlt werden muss.\r\n\r\nDer Helfer liest nur Netzwerkdateien mit Endung .pdf und PDF-Dateikopf,\r\nmit den Rechten des angemeldeten Benutzers und bis zu 100 MB.\r\nKeine Schreiboperationen, keine Befehlsausfuehrung, kein lokaler Webserver.\r\nEntfernen.cmd hebt die Browser-Anbindung auf; Installationsdateien\r\nund bereits gespeicherte PDF-Anhaenge werden dabei nicht geloescht.\r\n\r\nEigener Code unter MIT; siehe LICENSE.\r\n`);
+console.log("Windows-Helfer gebaut; lokale Erweiterungs-ID: " + id);

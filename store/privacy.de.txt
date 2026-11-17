@@ -1,0 +1,50 @@
+Datenschutzerklärung – PDF-Anhänge für Edge
+Stand: {{DATE}}
+
+1. Herausgeber und Kontakt
+Herausgeber: {{PUBLISHER}}
+Datenschutz- und Supportkontakt: {{SUPPORT}}
+
+2. Zweck der Erweiterung
+PDF-Anhänge für Edge zeigt eingebettete Dateien einer PDF neben dem vorhandenen Edge-PDF-Viewer an. Auf ausdrücklichen Wunsch werden einzelne Anhänge lokal gespeichert und über die zugeordnete Windows-Anwendung geöffnet.
+
+3. Welche Daten auf deinem Gerät verarbeitet werden
+Die Erweiterung verarbeitet die Adresse des aktiven Dokuments, die PDF-Datei, eingebettete Dateinamen, Größen, Beschreibungen und die Inhalte eingebetteter Dateien. PDFs können personenbezogene oder vertrauliche Informationen enthalten. Zur Erkennung von Web-PDFs werden die Antwort-Header oberster HTTP-/HTTPS-Webseiten-Navigationen auf den PDF-Inhaltstyp geprüft. Die Inhalte gewöhnlicher HTML-Seiten werden dabei nicht eingelesen. Erkannte PDF-Adressen werden dem jeweiligen Tab zugeordnet und im Sitzungsspeicher des Browsers gehalten.
+
+Diese Verarbeitung dient ausschließlich dem Anzeigen, Bereitstellen und Öffnen der vom Nutzer verwendeten PDF-Anhänge. Die Erweiterung legt keine Datenbank über den Browserverlauf an. Sie enthält keine Werbung, Telemetrie, Nutzungsanalyse oder Tracking-Funktion und hat keinen Benutzeraccount.
+
+4. Lokale Verarbeitung und Web-PDFs
+Das Untersuchen und Entschlüsseln der PDF findet lokal auf deinem Gerät mit der mitgelieferten PDF.js-Bibliothek statt. Die Erweiterung lädt keine PDF-Inhalte auf einen Server des Herausgebers oder einen Analysedienst hoch.
+
+Bei einer Web-PDF ruft die Erweiterung die ursprüngliche Dokumentadresse separat ab. Das kann eine zusätzliche Anfrage an den jeweiligen Webseiten- oder Portalbetreiber auslösen. Dabei verarbeitet der Browser die üblichen Netzwerkdaten und gegebenenfalls vorhandene Cookies oder Authentifizierungsinformationen für diese Adresse. Der Webseitenbetreiber kann den Abruf daher wie einen gewöhnlichen Dokumentabruf protokollieren. Die Erweiterung liest keine Cookie-Datenbank aus und erhält keine Portalpasswörter über ein eigenes Anmeldeformular. Für Datenverarbeitungen des jeweiligen Webseitenbetreibers gelten dessen Hinweise.
+
+5. PDF-Passwörter
+Wenn eine PDF verschlüsselt ist, kann die Erweiterung ein Dokumentpasswort anfordern. Dieses wird nur für die lokale Entschlüsselung an die PDF-Bibliothek übergeben. Das Eingabefeld wird nach der Übergabe geleert. Die Erweiterung schreibt das Passwort nicht in ihren Browserspeicher, einen Download oder eine Serverdatenbank. Während der Entschlüsselung können Passwort- und Entschlüsselungsinformationen vorübergehend im Arbeitsspeicher vorhanden sein.
+
+Optionale Windows-Anbindung für Netzwerkfreigaben
+Für die automatische Untersuchung von UNC-Netzwerk-PDFs kann ein gesonderter Windows-Helfer einmalig installiert und die optionale Berechtigung nativeMessaging über „Netzwerkzugriff aktivieren“ freigegeben werden. Ohne diese Einrichtung funktionieren lokale/Web-PDFs und die ausdrückliche Dateiauswahl weiterhin ohne diesen Helfer.
+
+Bei aktivierter Anbindung werden ausschließlich die Adresse der aktuellen UNC-PDF und deren Dateidaten lokal zwischen Edge und dem Helfer über Native Messaging übertragen. Der Helfer liest mit den Rechten des angemeldeten Windows-Benutzers ausschließlich Netzwerk-PDFs bis zu 100 MB. Er schreibt keine PDF-Kopie, führt keine vom Dokument vorgegebenen Befehle aus, öffnet keine Anhänge und betreibt keinen lokalen Webserver. Pro Lesevorgang wird ein zeitlich begrenzter Prozess gestartet. Die PDF-Analyse und eine mögliche Passworteingabe bleiben in der Erweiterung; PDF-Passwörter werden nicht an den Helfer übermittelt.
+
+Das Lesen der Freigabe kann eine weitere SMB-Anfrage und die übliche Windows-Authentifizierung beim jeweiligen Dateiserver auslösen. Der Dateiserver kann diesen Zugriff protokollieren. Die Einrichtung legt Helferdateien unter LocalAppData/PDF-Anhaenge-Edge/Netzwerk-Helfer und einen Native-Messaging-Eintrag für den aktuellen Benutzer in der Windows-Registrierung an. Darin stehen Installationspfad und genau freigegebene Erweiterungs-IDs; keine PDF-Inhalte oder Passwörter. Die Windows-Dateirechte werden nicht erweitert. Du kannst die optionale Berechtigung widerrufen oder die Registrierung mit dem mitgelieferten Entfernen-Programm aufheben. Die eigenen Helferdateien bleiben bis zu einer gesonderten Löschung erhalten.
+
+6. Speicherorte und Aufbewahrung
+Die Anhangsliste und die extrahierten Inhalte werden im Arbeitsspeicher der Erweiterung gehalten, solange sie für das aktuelle Dokument benötigt werden. Ein Dokumentwechsel verwirft die bisherige Zuordnung. Erkannte PDF-Adressen werden in chrome.storage.session gehalten; der jeweilige Eintrag wird beim Schließen des Tabs oder bei einer späteren erkannten Nicht-PDF-Antwort entfernt. Der Sitzungsspeicher wird nicht über storage.sync synchronisiert. Die Erweiterung führt keine eigene dauerhafte Speicherung vollständiger PDF-Dateien oder ihrer Passwörter durch.
+
+Erst mit „Bereitstellen“ speichert Edge eine Kopie des ausgewählten Anhangs im Downloadordner unter „PDF-Anhaenge“. Diese Kopien und der zugehörige Browser-Downloadeintrag bleiben bestehen, bis du sie selbst löschst. Das Entfernen der Erweiterung löscht bereits gespeicherte Kopien nicht. Der Speicherort kann den Sicherungs- oder Synchronisierungseinstellungen deines Geräts unterliegen.
+
+7. Öffnen mit anderen Anwendungen
+Mit „Öffnen“ wird der gespeicherte Anhang über seine Windows-Dateizuordnung an die betreffende Anwendung übergeben. Damit erhält diese Anwendung Zugriff auf die Datei. Ob die Anwendung Dateien synchronisiert oder an einen Dienst übermittelt, richtet sich nach dieser Anwendung und ihren Einstellungen. Die Erweiterung öffnet keine Anhänge automatisch und unterdrückt keine Browser-Sicherheitsabfragen.
+
+8. Berechtigungen und deine Wahlmöglichkeiten
+Die Seitenleistenberechtigung ermöglicht die Anzeige neben der PDF. Tab- und Webzugriff dienen dem Zuordnen und Lesen des aktuellen Dokuments. Die Antwort-Header-Erkennung dient dem Auffinden von PDF-Adressen ohne .pdf-Endung. Speicher- und Downloadberechtigungen ermöglichen die vorübergehende Zuordnung und das ausdrücklich angeforderte Speichern und Öffnen.
+
+Für lokale PDF-Adressen ist die gesonderte Edge-Einstellung „Zugriff auf Datei-URLs zulassen“ erforderlich. Ohne diese Freigabe kannst du eine PDF über die Dateiauswahl selbst laden. Du kannst Website- oder Dateizugriffe in Edge einschränken, die Erweiterung deaktivieren oder sie entfernen. Einzelne Funktionen sind dann gegebenenfalls nicht verfügbar. Gespeicherte Anhänge können im Downloadordner und die zugehörigen Einträge in Edge gelöscht werden.
+
+9. Support, Store und diese Webseite
+Wenn du den Herausgeber kontaktierst, können die von dir dabei übermittelten Kontakt- und Supportangaben zur Bearbeitung deiner Anfrage verarbeitet werden. Sende keine vertraulichen PDFs, Passwörter oder Zugangsdaten ohne vorherige Abstimmung. Die Erweiterung versendet keine Supportnachrichten automatisch. Ergänzende Angaben zum verwendeten Kontaktweg und zum Hosting dieser Datenschutzerklärung müssen durch den Herausgeber vor Veröffentlichung bereitgestellt werden.
+
+Installation, Updates und ein Abruf dieser Webseite können unabhängig von der Erweiterung Datenverarbeitungen durch Microsoft, deinen Browser, Netzwerkbetreiber oder den jeweiligen Webhost auslösen. Diese Vorgänge sind von der lokalen PDF-Verarbeitung zu unterscheiden.
+
+10. Änderungen
+Änderungen der Datenverarbeitung werden in einer aktualisierten Fassung dieser Erklärung beschrieben. Für Fragen wende dich an den oben genannten Kontakt.

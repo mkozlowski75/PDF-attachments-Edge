@@ -1,0 +1,42 @@
+Veröffentlichung im Microsoft Edge Add-ons-Store
+Stand der Anforderungen: 17. November 2026
+
+Dateien und ihr Zweck
+- PDF-Anhaenge-Edge-1.1.1-store.zip: nur dieses ZIP im Feld für das Erweiterungspaket hochladen. manifest.json liegt direkt im ZIP-Hauptverzeichnis.
+- Store-Texte.de.txt: Name, Beschreibung, Suchbegriffe und Versionshinweise für die deutsche Store-Seite.
+- Berechtigungen-und-Zweck.en.txt: einzeln kopierbare Begründungen für die Privacy-Seite; englisch für die Zertifizierungsprüfung.
+- Datenverwendung.de.txt: tatsächliche Datenflüsse und Hinweise zu den Bestätigungsfeldern im Partner Center.
+- Datenschutzerklaerung.html / Datenschutzerklaerung.txt: veröffentlichungsfähige technische Erklärung; fehlende Herausgeber-, Kontakt- und Hostingangaben vor Veröffentlichung ergänzen.
+- Hinweise-fuer-Zertifizierung.en.txt: Testschritte und erwartete Ergebnisse.
+- Store-Logo-128.png: Logo für den Store. 128 x 128 Pixel entspricht dem dokumentierten Mindestmaß.
+- Pruefdateien: synthetische PDFs für die Prüfung, nicht Teil der installierten Erweiterung.
+- PDF-Anhaenge-Edge-1.1.1-MIT-Quellcode.zip: separate Quellen für eine freiwillige Quellcode-Veröffentlichung. Nicht als Erweiterungspaket hochladen.
+
+Vor der Einreichung
+1. Herausgeber-/Organisationsname und Supportkontakt im Partner Center festlegen. Diese Angaben können öffentlich sichtbar werden.
+2. Angaben in publisher.json und Datenschutzerklärung vervollständigen. Den Copyright-Inhaber bei Bedarf vom neutralen Projekt-Autorenhinweis auf den zutreffenden Rechteinhaber ändern und das Paket neu bauen.
+3. Datenschutzerklärung ohne Platzhalter unter einer öffentlich erreichbaren, vorzugsweise HTTPS-Adresse veröffentlichen. Die Adresse im Partner Center eintragen. Hosting, Supportkontakt und gegebenenfalls dazugehörige rechtliche Angaben müssen zur tatsächlichen Veröffentlichung passen.
+4. Ein Entwicklerkonto für Microsoft Edge im Partner Center verwenden oder registrieren. Die Identitäts-/Kontodaten sind durch den Herausgeber selbst anzugeben.
+5. Als Store-Sprache Deutsch wählen. Die Oberfläche ist deutschsprachig. Kategorieempfehlung: Produktivität. Als Zielplattform Windows angeben, soweit das Formular dies vorsieht, und die Windows-Ausrichtung in der Beschreibung beibehalten.
+6. Nur das Store-ZIP hochladen. Die lokale Entwicklungskennung key ist darin entfernt. Die vom Store vergebene ID kann von der lokalen Installation abweichen; die Funktion ist nicht an die Entwicklungs-ID gebunden. Nach Freigabe nicht beide Fassungen parallel aktivieren, um doppelte Seitenleisten und Tastenkürzel zu vermeiden.
+7. Zweck, jede Berechtigung, Datenflüsse und „kein extern gehosteter Code“ anhand der beigefügten Texte eintragen. Die Begründungen gelten für die tatsächlich angeforderten Berechtigungen. Es wurden keine zusätzlichen Rechte nur für eine zukünftige Funktion eingebaut.
+8. Logo und deutsche Beschreibung eintragen. Die Beschreibung umfasst zwischen 250 und 10.000 Zeichen. Die Suchbegriffe halten die dokumentierten Grenzen von sieben Begriffen/Phrasen, 30 Zeichen je Begriff und insgesamt 21 Wörtern ein.
+9. Screenshots sind laut Dokumentation optional. Wenn du sie ergänzt: höchstens sechs; jeweils 640 x 480 oder 1280 x 800 Pixel. Nur tatsächliche, bereinigte Ansichten mit synthetischen Dokumenten verwenden. Das Referenzbild aus der Entwicklung ist kein automatisch passendes Store-Screenshotformat.
+10. Die beiden synthetischen Test-PDFs der Zertifizierungsprüfung zugänglich machen: per akzeptiertem Anhang oder einem erreichbaren Testdatei-Link. Keine lokalen Dateipfade als angeblich erreichbare Links einreichen. Der lokale Test benötigt kein Portal-Konto.
+11. Das hochzuladende Store-ZIP einmal entpackt in einem separaten Testprofil prüfen. Die bekannte lokale Testfassung und die Store-Vorbereitung dürfen sich nur durch die dokumentierten Paket-/Lizenzhinweise und die entfernte Entwicklungskennung unterscheiden.
+12. Erst nach Prüfung der Texte und der tatsächlichen Partner-Center-Felder die Einreichung zur Zertifizierung selbst freigeben. Die Vorbereitung ist keine Zusage einer Store-Zulassung.
+
+Lizenzumfang
+Eigener Erweiterungscode und eigene Dokumentation: MIT. Enthaltene Mozilla-PDF.js-Dateien und ihre Anpassungen: Apache 2.0. Die Bibliothekslizenz wird durch die MIT-Lizenz nicht ersetzt. Im Store-ZIP liegen beide Lizenztexte sowie die Änderungs-/Drittanbieterhinweise. Es werden keine privaten Signierschlüssel mitgeliefert.
+
+Prüfstand
+Die lokale Anwendung wurde mit Edge 157 unter Windows getestet. Der Nutzer bestätigte vier angezeigte Anhänge und das Öffnen von Hinweise.txt in Notepad++ mit dem erwarteten Inhalt. Version 1.1.1 erweitert den Funktionscode um den optionalen, ausschließlich lesenden Windows-Helfer. Dessen öffentlicher Download muss vor der Store-Einreichung bereitstehen und die genaue Store-ID muss beim Installieren freigegeben werden. Automatisierte Paketprüfungen ersetzen keine Zertifizierung durch Microsoft.
+
+Offizielle Quellen
+https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/publish-extension
+https://learn.microsoft.com/en-us/legal/microsoft-edge/extensions/developer-policies
+https://www.apache.org/licenses/LICENSE-2.0
+https://opensource.org/license/mit
+
+Netzwerk-Erweiterung 1.1.1
+Der Windows-Helfer wird separat als Windows-Netzwerk-Helfer-1.1.1.zip verteilt, nicht im Erweiterungs-Upload. In Partner Center die optionale Berechtigung nativeMessaging anhand der beigefügten Erklärung begründen. Die Store-Beschreibung und Datenschutzerklärung müssen die einmalige Einrichtung und den zusätzlichen SMB-Zugriff nennen. Der Helfer ist derzeit nicht digital signiert; eine signierte Installer-Verteilung ist vor breiter Veröffentlichung zu prüfen. Die öffentliche Installieren.cmd fragt die genaue Store-ID ab und autorisiert keine Entwicklungs-ID automatisch.

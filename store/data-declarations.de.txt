@@ -1,0 +1,24 @@
+Angaben zur Datenverwendung im Partner Center
+
+Zweck
+Eingebettete Dateien einer PDF neben dem vorhandenen Edge-Viewer anzeigen, lokal bereitstellen und auf ausdrücklichen Klick mit der zugeordneten Windows-Anwendung öffnen.
+
+Tatsächliche Datenverarbeitung
+- Auf dem Gerät verarbeitet: PDF-/Dateiinhalte, eingebettete Dateinamen, Beschreibungen, Größen, aktive Dokumentadressen und zur PDF-Erkennung Antwort-Header oberster HTTP-/HTTPS-Navigationen.
+- Optional auf dem Gerät verarbeitet: ein vom Nutzer eingegebenes PDF-Dokumentpasswort zur Entschlüsselung. Es wird nicht dauerhaft durch die Erweiterung gespeichert.
+- Vorübergehend gespeichert: erkannte PDF-Adressen je Tab in chrome.storage.session. Keine Synchronisierung über storage.sync.
+- Dauerhaft auf Nutzerwunsch gespeichert: ausgewählte Anhangskopien im Downloadordner und die üblichen Download-Einträge von Edge.
+- An Herausgeber oder Analysedienste übertragen: keine PDF-Inhalte, Passwörter, Nutzungsdaten oder Telemetrie.
+- Netzwerkzugriff: separater Abruf einer Web-PDF von ihrer ursprünglichen Adresse; der Browser kann dabei vorhandene Cookies/Authentifizierung für die jeweilige Adresse verwenden. Der Webseitenbetreiber kann eine weitere Anfrage sehen.
+- Öffnen: Die über Windows zugeordnete Anwendung erhält die vom Nutzer ausdrücklich geöffnete Anhangsdatei. Eine eventuelle Datenübertragung dieser Anwendung unterliegt deren Verhalten und Einstellungen.
+- Optionale Netzwerk-Anbindung: Bei einmalig installiertem Windows-Helfer und ausdrücklich freigegebenem nativeMessaging werden die aktuelle UNC-PDF-Adresse und deren Dateidaten über lokale Prozess-Pipes ausgetauscht. Windows kann dabei eine zusätzliche SMB-Anfrage/Authentifizierung beim Dateiserver auslösen. Der Helfer speichert keine PDF oder Passwörter und sendet nichts an den Herausgeber.
+
+Erklärung zur Datennutzung, zum Einfügen
+Die Erweiterung verarbeitet Dokumentinhalte und die zugehörige Dokumentadresse ausschließlich zur Anzeige und Bereitstellung eingebetteter PDF-Anhänge. Die PDF-Verarbeitung findet lokal statt. Es gibt keinen Upload an einen Dienst des Herausgebers, keine Werbung, keine Telemetrie, keine Nutzungsanalyse, keinen Datenverkauf und keine Verwendung für Bonitäts- oder Kreditentscheidungen. Web-PDFs werden separat von ihrer ursprünglichen Adresse mit der vorhandenen Browsersitzung abgerufen. Dateien werden nur auf ausdrücklichen Wunsch gespeichert und geöffnet. Die angeforderten Berechtigungen werden ausschließlich für diesen einzigen Funktionszweck verwendet.
+
+Auswahl der Datenkategorien
+Partner Center kann seine Feldbezeichnungen und Definitionen ändern. Die Auswahl muss sich nach den dort angezeigten Definitionen richten. Lokal gelesene Dokumentinhalte und Dokumentadressen dürfen in der Beschreibung nicht verschwiegen werden. Falls die Erfassungskategorien auch rein lokale Verarbeitung/Zugriff einschließen, sind insbesondere Website-/Dokumentinhalte, aktive Dokumentadressen und gegebenenfalls lokal eingegebene Dokumentpasswörter entsprechend anzugeben. Die Erweiterung sammelt keine allgemeine Verlaufsdatenbank und keine personenbezogenen Nutzungsprofile.
+
+Nicht pauschal „kein Datenzugriff“ oder „keine personenbezogenen Daten“ erklären: Eine PDF kann personenbezogene und vertrauliche Inhalte enthalten. Zutreffend ist „lokale Verarbeitung, keine Übermittlung an einen Dienst des Herausgebers“. Keine Portal-Zugangsdaten oder Cookie-Datenbank werden von der Erweiterung ausgelesen; der Browser verwaltet die Authentifizierung beim Dokumentabruf.
+
+Die finalen Bestätigungsfelder im Partner Center muss der tatsächliche Herausgeber nach Prüfung ihrer konkreten Formulierungen selbst bestätigen. Die beigefügte Datenschutzerklärung muss unter einer öffentlich erreichbaren URL veröffentlicht und mit diesen Angaben konsistent gehalten werden.

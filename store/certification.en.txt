@@ -1,0 +1,37 @@
+PDF Attachments for Edge – certification notes, version 1.1.1
+
+Purpose and platform
+The extension adds an attachment sidebar to the built-in Edge PDF viewer. It does not replace the viewer, modify PDF responses, change the default PDF association, or inject content scripts. The UI is German. The supported target is current desktop Microsoft Edge on Windows. Tests were performed on Edge 157.0.4341.60. The text attachment in the manual test opened in the user's Windows default text application, Notepad++.
+
+No accounts, payment or external service
+No sign-in, payment, publisher backend or account is required. The PDF engine and worker are bundled locally. Local/Web-PDFs and the explicit file picker work without a native helper. For automatic UNC PDF reading only, a separately installed Windows helper and explicit optional nativeMessaging permission are required. Downloading a PDF from a portal may require that user's existing portal session; reviewers do not need portal credentials for the included synthetic local tests.
+
+Review test files
+The preparation bundle contains Test-PDF-mit-vier-Anhaengen.pdf and Test-PDF-ohne-Anhaenge.pdf under Pruefdateien. These contain synthetic data only. They are deliberately outside the extension upload ZIP so they are not installed with the application. Provide these PDFs through an attachment or a public review-test link accepted by Partner Center when submitting. Do not paste a local filesystem path as if reviewers could access it.
+
+Test steps
+1. Install the store candidate on Windows and open Test-PDF-mit-vier-Anhaengen.pdf in the existing Edge viewer.
+2. For automatic local URL reading, enable Allow access to file URLs in this extension's details. Alternatively, leave it disabled and use the sidebar's PDF auswählen (Choose PDF) button to select the test PDF explicitly.
+3. Click the extension action or use Alt+Shift+A to open the sidebar. A keyboard shortcut can be reassigned or disabled by another extension; the action remains available.
+4. Expect four entries: Hinweise.txt, Prüfung – Grüße.xml, Nur-AF.csv and Seiten-Anhang.txt. Ordering is not significant.
+5. Click Bereitstellen (Save a local copy) for Hinweise.txt. Wait for the button to become Öffnen (Open).
+6. Click Öffnen. Confirm any browser prompt if displayed. Windows opens the file using its current .txt association; the application does not have to be Notepad++.
+7. The expected text is: Test erfolgreich: Dieser Anhang wurde aus der PDF entnommen.
+8. Open Test-PDF-ohne-Anhaenge.pdf. Expect a verified zero/empty state, not the previous document's attachments.
+
+Why saving and opening are separate
+downloads.open requires a completed download and a direct user gesture. The extension therefore saves a selected attachment first, then exposes the explicit Open action. It does not suppress confirmation prompts or download safety checks. Saved copies remain in the download directory until the user deletes them.
+
+Expected limitations
+No attachment preview is offered. One-time URLs, POST-delivered documents, blob URLs or PDFs embedded within a web page may need to be downloaded and selected explicitly. DRM restrictions are not bypassed. A question mark indicates unknown/incomplete inspection; it does not mean zero attachments. Maximum sizes are 100 MB for a source PDF, 100 MB per attachment and 200 MB for all extracted attachments combined.
+
+Implementation and license review
+Original extension code is MIT-licensed. Bundled Mozilla PDF.js 5.4.394 and its local modifications remain Apache-2.0-licensed. LICENSE, THIRD-PARTY-NOTICES.txt, PDFJS-MODIFICATIONS.txt and vendor/PDFJS-LICENSE.txt are included in the upload. The PDF.js worker includes a prominent modification notice. The local patch extends read-only attachment enumeration to reachable file specifications and bounds decoded attachment sizes; it does not add document script execution or external code loading.
+
+Optional UNC network test
+The preparation bundle includes Windows-Netzwerk-Helfer-1.1.1.zip separately from the extension upload. Provide a public download URL to that helper before submitting. Its MIT source is included in the source package. The helper is currently unsigned. It requires .NET Framework 4.8 and installs only for the current Windows user without administrator rights; no browser safety checks should be disabled to install it.
+
+Install the helper for the exact Store-assigned extension ID using the included interactive installer; copy that ID from edge://extensions. Then open a PDF on a UNC share, allow file URLs, and use Netzwerkzugriff aktivieren once in the sidebar. Subsequent network PDFs should be inspected without a file picker. For the real-Edge development test the optional permission was pre-granted only in the isolated test manifest; the shipped manifest declares it optional. For ordinary local-PDF certification the helper is not necessary.
+
+Store ID
+The local-development key is omitted from the store manifest for the initial submission. The Store ID can differ. The helper installer must be run for that exact Store ID; wildcards are not accepted. The public helper installer asks for the ID rather than silently authorizing the local-development ID. There is no publisher backend tied to an extension ID.

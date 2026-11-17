@@ -1,0 +1,29 @@
+Mozilla PDF.js 5.4.394 – Änderungen für PDF-Anhänge für Edge
+Stand: 2026-11-17
+
+Die mitgelieferten Dateien vendor/pdf.mjs und vendor/pdf.worker.mjs stammen aus
+pdfjs-dist 5.4.394. Die ursprünglichen Copyright- und Lizenzhinweise bleiben
+erhalten. Die vollständige Apache-2.0-Lizenz liegt unter vendor/PDFJS-LICENSE.txt.
+Diese Bibliotheksdateien einschließlich der folgenden Anpassungen werden unter
+Apache 2.0 weitergegeben; die MIT-Lizenz des eigenen Erweiterungscodes ersetzt
+ihre Lizenz nicht.
+
+vendor/pdf.mjs: funktional unverändert.
+
+vendor/pdf.worker.mjs:
+- Die ausschließlich lesende Anhangserkennung durchsucht erreichbare
+  Dateispezifikationen des PDF-Objektbaums. Dadurch werden neben dem EmbeddedFiles-
+  Namensbaum auch Dateianhänge als Anmerkungen und Associated Files (AF) erkannt.
+- Wiederholte Referenzen werden berücksichtigt, ohne denselben referenzierten
+  Dateispezifikationsknoten mehrfach auszugeben.
+- Die Untersuchung besitzt eine Grenze für die Zahl besuchter PDF-Objekte.
+- Die Extraktion dekodiert Anhänge schrittweise in begrenzten Abschnitten und
+  kopiert sie in passend große Inhaltspuffer. Die Grenze je Anhang beträgt
+  100 MiB; die Summe der zurückgegebenen Inhalte ist auf 200 MiB begrenzt.
+- Eine auffällige Änderungsnotiz wurde vor dem ursprünglichen Bibliotheksinhalt
+  ergänzt. Ursprüngliche Kommentare wurden nicht entfernt.
+
+Die Änderungen führen keine Skripte aus einer PDF aus und laden keinen
+Erweiterungscode aus dem Netz nach. Die Build-Schritte stehen im separat
+bereitgestellten Quellcode in scripts/build.mjs. Die Build-Anpassung bricht ab,
+wenn die erwarteten Originalstellen nicht exakt übereinstimmen.
