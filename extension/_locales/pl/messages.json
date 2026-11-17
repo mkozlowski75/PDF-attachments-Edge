@@ -1,0 +1,396 @@
+{
+  "locale": {
+    "message": "pl"
+  },
+  "extensionName": {
+    "message": "Załączniki PDF dla Edge"
+  },
+  "extensionDescription": {
+    "message": "Wyświetla załączniki osadzone w PDF obok przeglądarki Edge i otwiera je w przypisanej aplikacji Windows."
+  },
+  "commandOpenPanel": {
+    "message": "Pokaż załączniki PDF"
+  },
+  "panelTitle": {
+    "message": "Załączniki PDF"
+  },
+  "currentDocument": {
+    "message": "Dla otwartego dokumentu"
+  },
+  "attachmentCountLabel": {
+    "message": "Liczba załączników"
+  },
+  "documentLabel": {
+    "message": "Dokument"
+  },
+  "documentHeading": {
+    "message": "DOKUMENT"
+  },
+  "noDocument": {
+    "message": "Nie wczytano pliku PDF"
+  },
+  "openPdfHint": {
+    "message": "Otwórz plik PDF w dotychczasowej przeglądarce Edge."
+  },
+  "refreshButton": {
+    "message": "Sprawdź bieżącą kartę"
+  },
+  "chooseButton": {
+    "message": "Wybierz PDF"
+  },
+  "initialStatus": {
+    "message": "Sprawdzanie otwartego pliku PDF…"
+  },
+  "networkSetupLabel": {
+    "message": "Skonfiguruj dostęp do sieci"
+  },
+  "networkSetupTitle": {
+    "message": "Automatyczny odczyt plików PDF z sieci"
+  },
+  "networkSetupHelp": {
+    "message": "Jednorazowo zainstaluj dołączony program pomocniczy dla Windows i zezwól na dostęp do sieci. Następnie panel boczny będzie automatycznie sprawdzać bieżący plik PDF z sieci."
+  },
+  "networkEnableButton": {
+    "message": "Włącz dostęp do sieci"
+  },
+  "passwordLabel": {
+    "message": "Hasło do tego pliku PDF"
+  },
+  "unlockButton": {
+    "message": "Odblokuj"
+  },
+  "cancelButton": {
+    "message": "Anuluj"
+  },
+  "attachmentsLabel": {
+    "message": "Osadzone załączniki"
+  },
+  "emptyMessage": {
+    "message": "Nie znaleziono osadzonych załączników."
+  },
+  "helpSummary": {
+    "message": "Jak to działa"
+  },
+  "helpSave": {
+    "message": "„Przygotuj” zapisuje kopię wybranego załącznika w podfolderze „PDF-Anhaenge” folderu pobierania. Następnie „Otwórz” uruchamia plik w przypisanej aplikacji Windows."
+  },
+  "helpOpen": {
+    "message": "Drugie kliknięcie jest konieczne, ponieważ Edge zezwala na otwarcie pliku tylko w wyniku bezpośredniego działania użytkownika. W zależności od ustawień Edge może pojawić się dodatkowe pytanie."
+  },
+  "helpLocal": {
+    "message": "Dla lokalnych plików PDF włącz „Zezwalaj na dostęp do adresów URL plików” dla tego rozszerzenia na stronie edge://extensions. Możesz też użyć przycisku „Wybierz PDF”."
+  },
+  "helpNetwork": {
+    "message": "W przypadku udziałów sieciowych zainstaluj także jednorazowo program pomocniczy dla Windows i zezwól na opcjonalne połączenie przyciskiem „Włącz dostęp do sieci”. Program odczytuje wyłącznie pliki PDF z sieci i nie zmienia żadnych plików."
+  },
+  "helpPortals": {
+    "message": "W przypadku portali z jednorazowymi linkami lub plików PDF osadzonych na stronie wybierz pobrany plik PDF. Lista załączników dotyczy źródła dokumentu wskazanego powyżej."
+  },
+  "helpPrivacy": {
+    "message": "Przetwarzanie odbywa się lokalnie. Dokument główny i przeglądarka PDF w Edge nie są zmieniane. W przypadku plików PDF z internetu pobierany jest wyłącznie adres dokumentu."
+  },
+  "helpLimits": {
+    "message": "Przygotowane kopie pozostają w folderze pobierania. Plik PDF i pojedynczy załącznik mogą mieć po 100 MB, a wszystkie załączniki łącznie do 200 MB."
+  },
+  "footer": {
+    "message": "Załączniki PDF · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfDocument": {
+    "message": "Dokument PDF"
+  },
+  "attachment": {
+    "message": "Załącznik"
+  },
+  "attachmentNumber": {
+    "message": "Załącznik $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "bytes": {
+    "message": "$arg1$ B",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "kilobytes": {
+    "message": "$arg1$ KB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "megabytes": {
+    "message": "$arg1$ MB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "contentUnreadable": {
+    "message": "Nie można odczytać zawartości"
+  },
+  "prepareButton": {
+    "message": "Przygotuj"
+  },
+  "openButton": {
+    "message": "Otwórz"
+  },
+  "savingStatus": {
+    "message": "Zapisywanie…"
+  },
+  "showFolderButton": {
+    "message": "Pokaż w folderze"
+  },
+  "prepareAgainButton": {
+    "message": "Przygotuj ponownie"
+  },
+  "savedFilename": {
+    "message": "Nazwa zapisanego pliku: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorOpen": {
+    "message": "Edge nie może otworzyć pliku: $arg1$ W razie potrzeby użyj przycisku „Pokaż w folderze”.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorSave": {
+    "message": "Nie udało się zapisać załącznika: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorDownload": {
+    "message": "Pobieranie zostało przerwane lub zablokowane przez Edge."
+  },
+  "searchingAttachments": {
+    "message": "Wyszukiwanie osadzonych załączników…"
+  },
+  "passwordIncorrect": {
+    "message": "Hasło jest nieprawidłowe. Spróbuj ponownie."
+  },
+  "passwordRequired": {
+    "message": "Ten plik PDF jest chroniony hasłem."
+  },
+  "errorAttachmentContent": {
+    "message": "Brakuje osadzonej zawartości lub nie udało się jej odczytać w całości."
+  },
+  "attachmentsUnreadable": {
+    "message": "Znalezione załączniki: $arg1$. Nie udało się odczytać w całości: $arg2$.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "attachmentsFound_one": {
+    "message": "Znaleziono $arg1$ załącznik. Aby go otworzyć, najpierw go przygotuj.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_few": {
+    "message": "Znaleziono $arg1$ załączniki. Aby je otworzyć, najpierw je przygotuj.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_many": {
+    "message": "Znaleziono $arg1$ załączników. Aby je otworzyć, najpierw je przygotuj.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_other": {
+    "message": "Znaleziono $arg1$ załącznika. Aby je otworzyć, najpierw je przygotuj.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfChecked": {
+    "message": "Plik PDF został sprawdzony."
+  },
+  "manualSource": {
+    "message": "Ręcznie wybrany plik PDF · Powiązany z tą kartą"
+  },
+  "networkSource": {
+    "message": "Plik PDF w udziale sieciowym · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "localSource": {
+    "message": "Lokalny plik PDF z bieżącej karty"
+  },
+  "readingPdf": {
+    "message": "Odczytywanie pliku PDF…"
+  },
+  "errorTooLarge": {
+    "message": "Plik PDF jest większy niż 100 MB."
+  },
+  "errorTooLargeChoose": {
+    "message": "Plik PDF jest większy niż 100 MB. Wybierz mniejszy plik."
+  },
+  "errorFileAccess": {
+    "message": "Zezwól na dostęp do adresów URL plików na stronie edge://extensions lub użyj przycisku „Wybierz PDF”."
+  },
+  "errorReadAborted": {
+    "message": "Odczyt został anulowany lub trwał zbyt długo. Spróbuj ponownie lub wybierz plik PDF."
+  },
+  "errorInspect": {
+    "message": "Nie udało się sprawdzić pliku PDF w całości."
+  },
+  "errorInvalidPdf": {
+    "message": "Plik PDF jest nieprawidłowy lub uszkodzony."
+  },
+  "errorWithUnknownCount": {
+    "message": "$arg1$ Liczba załączników jest nieznana.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noActiveTab": {
+    "message": "Nie znaleziono aktywnej karty. Możesz wybrać plik PDF."
+  },
+  "selectDocumentHint": {
+    "message": "Otwórz plik PDF. Jeśli adres nie kończy się na .pdf, kliknij „Sprawdź bieżącą kartę”. Możesz też wybrać plik PDF."
+  },
+  "networkDeclined": {
+    "message": "Dostęp do sieci nie został włączony. Nadal możesz ręcznie wybrać plik PDF."
+  },
+  "unlockingPdf": {
+    "message": "Odblokowywanie pliku PDF…"
+  },
+  "passwordCancelled": {
+    "message": "Anulowano wprowadzanie hasła. Liczba załączników jest nieznana."
+  },
+  "reloadingDocument": {
+    "message": "Ponowne wczytywanie dokumentu…"
+  },
+  "aborted": {
+    "message": "Anulowano"
+  },
+  "errorHttp": {
+    "message": "Nie udało się wczytać pliku PDF (HTTP $arg1$).",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorWebNotPdf": {
+    "message": "Adres nie zwraca pliku PDF. Może być wymagane logowanie lub ponowne wybranie pliku."
+  },
+  "errorLocalNotPdf": {
+    "message": "Wybrany plik nie jest czytelnym plikiem PDF."
+  },
+  "errorLocalRead": {
+    "message": "Nie udało się odczytać pliku pod jego adresem. Sprawdź jego dostępność lub wczytaj go przyciskiem „Wybierz PDF”."
+  },
+  "errorReadTimeout": {
+    "message": "Odczyt pliku PDF trwał zbyt długo."
+  },
+  "errorNetworkOnly": {
+    "message": "Program pomocniczy dla Windows obsługuje wyłącznie adresy plików PDF w udziałach sieciowych."
+  },
+  "errorNetworkEnable": {
+    "message": "Zainstaluj jednorazowo program pomocniczy dla Windows, a następnie wybierz „Włącz dostęp do sieci”. Pliki PDF z sieci będą wtedy sprawdzane automatycznie."
+  },
+  "errorNetworkRestart": {
+    "message": "Dostęp do sieci jest dozwolony, ale panel boczny wymaga ponownego uruchomienia. Kliknij „Włącz dostęp do sieci”. Panel zostanie automatycznie wczytany ponownie."
+  },
+  "errorNetworkTimeout": {
+    "message": "Dostęp do pliku PDF z sieci trwał zbyt długo. Sprawdź połączenie z udziałem sieciowym."
+  },
+  "errorHelperResponse": {
+    "message": "Nieprawidłowa odpowiedź programu pomocniczego dla Windows."
+  },
+  "errorNetworkRead": {
+    "message": "Nie udało się odczytać pliku PDF z sieci."
+  },
+  "errorNetworkSize": {
+    "message": "Program pomocniczy dla Windows zgłasza nieprawidłowy lub zbyt duży plik PDF."
+  },
+  "errorNetworkSequence": {
+    "message": "Plik PDF z sieci został przesłany niekompletnie lub w niewłaściwej kolejności."
+  },
+  "errorNetworkBlock": {
+    "message": "Nieprawidłowa długość bloku danych PDF."
+  },
+  "errorNetworkIncomplete": {
+    "message": "Plik PDF z sieci nie został przesłany w całości."
+  },
+  "errorNetworkHeader": {
+    "message": "Plik z sieci nie zawiera czytelnego nagłówka PDF."
+  },
+  "errorHelperUnknown": {
+    "message": "Nieznana odpowiedź programu pomocniczego dla Windows."
+  },
+  "errorHelperUnavailable": {
+    "message": "Program pomocniczy dla plików PDF z sieci jest niedostępny. Zainstaluj go jednorazowo lub sprawdź instalację dla identyfikatora tego rozszerzenia."
+  },
+  "errorHelperUnavailableDetail": {
+    "message": "$arg1$ ($arg2$)",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errorNetworkNotFound": {
+    "message": "Nie znaleziono pliku PDF z sieci. Sprawdź udział sieciowy i adres."
+  },
+  "errorNetworkDenied": {
+    "message": "Odmówiono dostępu do pliku PDF z sieci lub tej instalacji programu pomocniczego."
+  },
+  "errorNetworkPathLong": {
+    "message": "Ścieżka sieciowa jest zbyt długa dla tego systemu Windows."
+  },
+  "errorNetworkIo": {
+    "message": "Nie udało się odczytać pliku PDF z sieci w całości. Sprawdź połączenie z udziałem sieciowym."
+  },
+  "errorNetworkChanged": {
+    "message": "Plik PDF z sieci został zmieniony podczas odczytu lub jest zbyt duży."
+  },
+  "errorNetworkPath": {
+    "message": "Adres pliku PDF z sieci jest nieprawidłowy lub nie jest obsługiwany przez program pomocniczy dla Windows."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "edge-pdf-anhaenge",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -11,7 +11,8 @@
     "test:edge": "node scripts/native-open-probe.mjs",
     "build:store": "node scripts/build-store.mjs",
     "test:store": "node --test tests/store.test.mjs",
-    "build:native": "node scripts/build-native.mjs"
+    "build:native": "node scripts/build-native.mjs",
+    "test:locales:edge": "node scripts/test-locales-edge.mjs"
   },
   "dependencies": {
     "pdfjs-dist": "5.4.394"

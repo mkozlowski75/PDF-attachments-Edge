@@ -109,7 +109,7 @@ try {
   await poll(() => evaluate("document.getElementById('count').textContent === '4'"), "PDF-Tab erneut aktivieren");
   report.checks.push("Tabwechsel entfernt alte Anhänge und liest beim Zurückwechseln die passende PDF ein");
   await evaluate("[...document.querySelectorAll('.attachment')].find(row => row.querySelector('h2').textContent === 'Hinweise.txt').querySelector('button').click()", true);
-  await poll(() => evaluate("[...document.querySelectorAll('.attachment')].find(row => row.querySelector('h2').textContent === 'Hinweise.txt').querySelector('button').textContent === 'Öffnen'"), "Anhang speichern");
+  await poll(() => evaluate("[...document.querySelectorAll('.attachment')].find(row => row.querySelector('h2').textContent === 'Hinweise.txt').querySelector('button').textContent === chrome.i18n.getMessage('openButton')"), "Anhang speichern");
   const item = await evaluate("chrome.downloads.search({limit:1,orderBy:['-startTime']}).then(items => items[0])");
   assert.equal(path.basename(item.filename), "Hinweise.txt");
   assert.match(await readFile(item.filename, "utf8"), /Dieser Anhang wurde aus der PDF entnommen/);

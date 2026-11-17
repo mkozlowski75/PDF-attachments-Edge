@@ -1,5 +1,13 @@
 # Versionshinweise
 
+## 1.2.0 – 17. November 2026
+
+- Englische und polnische Oberfläche einschließlich Hilfe, zugänglicher Beschriftungen, Passwortdialogen und Status-/Fehlermeldungen.
+- Automatische Sprachwahl anhand der Edge-Anzeigesprache; Deutsch bleibt Rückfallsprache.
+- Polnische Mehrzahlformen und sprachabhängige Zahlenformatierung.
+- Vorhandene Windows-Helfer bleiben kompatibel; bekannte Helferfehler werden in der Seitenleiste übersetzt.
+- Neue Übersetzungsprüfungen und automatischer Edge-Test mit getrennten Sprachprofilen.
+
 ## 1.1.1 – 17. November 2026
 
 - Die Seitenleiste startet nach der optionalen Netzwerkfreigabe automatisch neu, damit Edge die Windows-Schnittstelle bereitstellt.

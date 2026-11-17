@@ -11,8 +11,12 @@ test("Store-Beschreibung und Suchbegriffe halten die dokumentierten Grenzen ein"
   assert.ok(listing.searchTerms.every(term => term.length <= 30));
   assert.ok(listing.searchTerms.join(" ").trim().split(/\s+/).length <= 21);
   const manifest = await json("extension/manifest.json");
-  assert.equal(listing.name, manifest.name);
-  assert.equal(listing.shortDescription, manifest.description);
+  const messages = await json("extension/_locales/de/messages.json");
+  assert.equal(manifest.default_locale, "de");
+  assert.equal(manifest.name, "__MSG_extensionName__");
+  assert.equal(manifest.description, "__MSG_extensionDescription__");
+  assert.equal(listing.name, messages.extensionName.message);
+  assert.equal(listing.shortDescription, messages.extensionDescription.message);
 });
 
 test("Jede angeforderte Berechtigung ist erklärt; kein extern gehosteter Code zugesagt", async () => {

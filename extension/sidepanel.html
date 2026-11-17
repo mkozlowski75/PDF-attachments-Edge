@@ -3,43 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PDF-Anhänge</title>
+  <title data-i18n="panelTitle">PDF-Anhänge</title>
   <link rel="stylesheet" href="sidepanel.css">
 </head>
 <body>
-  <header><img src="icons/48.png" width="36" height="36" alt=""><div><h1>PDF-Anhänge</h1><p>Zum geöffneten Dokument</p></div><span id="count" aria-label="Anzahl der Anhänge">–</span></header>
+  <header><img src="icons/48.png" width="36" height="36" alt=""><div><h1 data-i18n="panelTitle">PDF-Anhänge</h1><p data-i18n="currentDocument">Zum geöffneten Dokument</p></div><span id="count" data-i18n-aria-label="attachmentCountLabel" aria-label="Anzahl der Anhänge">–</span></header>
   <main>
-    <section class="source" aria-label="Dokument">
-      <div class="eyebrow">DOKUMENT</div><div id="document-name">Keine PDF geladen</div>
-      <div id="source-note" class="muted">Öffne eine PDF im bisherigen Edge-Viewer.</div>
-      <div class="toolbar"><button id="refresh" type="button">Aktuellen Tab prüfen</button><button id="choose" type="button">PDF auswählen</button></div>
+    <section class="source" data-i18n-aria-label="documentLabel" aria-label="Dokument">
+      <div class="eyebrow" data-i18n="documentHeading">DOKUMENT</div><div id="document-name" data-i18n="noDocument">Keine PDF geladen</div>
+      <div id="source-note" class="muted" data-i18n="openPdfHint">Öffne eine PDF im bisherigen Edge-Viewer.</div>
+      <div class="toolbar"><button id="refresh" type="button" data-i18n="refreshButton">Aktuellen Tab prüfen</button><button id="choose" type="button" data-i18n="chooseButton">PDF auswählen</button></div>
       <input id="file" type="file" accept="application/pdf,.pdf" hidden>
     </section>
-    <p id="status" role="status" aria-live="polite">Die geöffnete PDF wird geprüft …</p>
-    <section id="network-setup" class="source" hidden aria-label="Netzwerkzugriff einrichten">
-      <strong>Netzwerkfreigaben automatisch lesen</strong>
-      <p class="muted">Einmalig den mitgelieferten Windows-Helfer einrichten und den Netzwerkzugriff erlauben. Danach untersucht die Seitenleiste die aktuelle Netzwerk-PDF automatisch.</p>
-      <button id="network-enable" type="button">Netzwerkzugriff aktivieren</button>
+    <p id="status" data-i18n="initialStatus" role="status" aria-live="polite">Die geöffnete PDF wird geprüft …</p>
+    <section id="network-setup" class="source" hidden data-i18n-aria-label="networkSetupLabel" aria-label="Netzwerkzugriff einrichten">
+      <strong data-i18n="networkSetupTitle">Netzwerkfreigaben automatisch lesen</strong>
+      <p class="muted" data-i18n="networkSetupHelp">Einmalig den mitgelieferten Windows-Helfer einrichten und den Netzwerkzugriff erlauben. Danach untersucht die Seitenleiste die aktuelle Netzwerk-PDF automatisch.</p>
+      <button id="network-enable" type="button" data-i18n="networkEnableButton">Netzwerkzugriff aktivieren</button>
     </section>
     <form id="password-form" hidden>
-      <label for="password">Passwort für diese PDF</label>
+      <label for="password" data-i18n="passwordLabel">Passwort für diese PDF</label>
       <input id="password" type="password" autocomplete="off" required>
-      <div class="toolbar"><button type="submit">Entsperren</button><button id="password-cancel" type="button">Abbrechen</button></div>
+      <div class="toolbar"><button type="submit" data-i18n="unlockButton">Entsperren</button><button id="password-cancel" type="button" data-i18n="cancelButton">Abbrechen</button></div>
     </form>
-    <ul id="attachments" aria-label="Eingebettete Anhänge"></ul>
-    <div id="empty" hidden><span class="empty-icon" aria-hidden="true">✓</span><p>Keine eingebetteten Anhänge gefunden.</p></div>
+    <ul id="attachments" data-i18n-aria-label="attachmentsLabel" aria-label="Eingebettete Anhänge"></ul>
+    <div id="empty" hidden><span class="empty-icon" aria-hidden="true">✓</span><p data-i18n="emptyMessage">Keine eingebetteten Anhänge gefunden.</p></div>
     <details>
-      <summary>So funktioniert’s</summary>
-      <p>„Bereitstellen“ speichert eine Kopie des gewählten Anhangs im Downloadordner unter „PDF-Anhaenge“. Danach öffnet „Öffnen“ die Datei über ihre Windows-Zuordnung.</p>
-      <p>Der zweite Klick ist nötig, weil Edge das Öffnen einer Datei nur als direkte Benutzeraktion erlaubt. Je nach Edge-Einstellungen erscheint eine zusätzliche Rückfrage.</p>
-      <p>Für lokale PDFs: Unter <strong>edge://extensions</strong> bei dieser Erweiterung „Zugriff auf Datei-URLs zulassen“ aktivieren. Alternativ „PDF auswählen“ verwenden.</p>
-      <p>Für Netzwerkfreigaben zusätzlich einmalig den Windows-Helfer installieren und über „Netzwerkzugriff aktivieren“ die optionale Windows-Anbindung erlauben. Der Helfer liest ausschließlich Netzwerk-PDFs und verändert keine Dateien.</p>
-      <p>Bei Portalen mit Einmal-Links oder PDFs innerhalb einer Webseite bitte die heruntergeladene PDF auswählen. Die angezeigte Dokumentquelle ist für die Anhangsliste maßgeblich.</p>
-      <p>Die Verarbeitung erfolgt lokal. Das Hauptdokument und der Edge-Viewer werden nicht verändert. Bei Web-PDFs wird ausschließlich die Dokumentadresse abgerufen.</p>
-      <p>Bereitgestellte Kopien bleiben im Downloadordner. PDFs und einzelne Anhänge dürfen jeweils bis zu 100 MB groß sein; alle Anhänge zusammen bis zu 200 MB.</p>
+      <summary data-i18n="helpSummary">So funktioniert’s</summary>
+      <p data-i18n="helpSave">„Bereitstellen“ speichert eine Kopie des gewählten Anhangs im Downloadordner unter „PDF-Anhaenge“. Danach öffnet „Öffnen“ die Datei über ihre Windows-Zuordnung.</p>
+      <p data-i18n="helpOpen">Der zweite Klick ist nötig, weil Edge das Öffnen einer Datei nur als direkte Benutzeraktion erlaubt. Je nach Edge-Einstellungen erscheint eine zusätzliche Rückfrage.</p>
+      <p data-i18n="helpLocal">Für lokale PDFs: Unter <strong>edge://extensions</strong> bei dieser Erweiterung „Zugriff auf Datei-URLs zulassen“ aktivieren. Alternativ „PDF auswählen“ verwenden.</p>
+      <p data-i18n="helpNetwork">Für Netzwerkfreigaben zusätzlich einmalig den Windows-Helfer installieren und über „Netzwerkzugriff aktivieren“ die optionale Windows-Anbindung erlauben. Der Helfer liest ausschließlich Netzwerk-PDFs und verändert keine Dateien.</p>
+      <p data-i18n="helpPortals">Bei Portalen mit Einmal-Links oder PDFs innerhalb einer Webseite bitte die heruntergeladene PDF auswählen. Die angezeigte Dokumentquelle ist für die Anhangsliste maßgeblich.</p>
+      <p data-i18n="helpPrivacy">Die Verarbeitung erfolgt lokal. Das Hauptdokument und der Edge-Viewer werden nicht verändert. Bei Web-PDFs wird ausschließlich die Dokumentadresse abgerufen.</p>
+      <p data-i18n="helpLimits">Bereitgestellte Kopien bleiben im Downloadordner. PDFs und einzelne Anhänge dürfen jeweils bis zu 100 MB groß sein; alle Anhänge zusammen bis zu 200 MB.</p>
     </details>
   </main>
-  <footer>PDF-Anhänge · 1.1.1</footer>
+  <footer>PDF-Anhänge · 1.2.0</footer>
   <script type="module" src="sidepanel.js"></script>
 </body>
 </html>

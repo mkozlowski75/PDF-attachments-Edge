@@ -1,7 +1,7 @@
-PDF Attachments for Edge – certification notes, version 1.1.1
+PDF Attachments for Edge – certification notes, version 1.2.0
 
 Purpose and platform
-The extension adds an attachment sidebar to the built-in Edge PDF viewer. It does not replace the viewer, modify PDF responses, change the default PDF association, or inject content scripts. The UI is German. The supported target is current desktop Microsoft Edge on Windows. Tests were performed on Edge 157.0.4341.60. The text attachment in the manual test opened in the user's Windows default text application, Notepad++.
+The extension adds an attachment sidebar to the built-in Edge PDF viewer. It does not replace the viewer, modify PDF responses, change the default PDF association, or inject content scripts. The UI supports German, English and Polish and automatically follows the browser UI language, with German as the fallback. The supported target is current desktop Microsoft Edge on Windows. Tests were performed on Edge 157.0.4341.60. The text attachment in the manual test opened in the user's Windows default text application, Notepad++.
 
 No accounts, payment or external service
 No sign-in, payment, publisher backend or account is required. The PDF engine and worker are bundled locally. Local/Web-PDFs and the explicit file picker work without a native helper. For automatic UNC PDF reading only, a separately installed Windows helper and explicit optional nativeMessaging permission are required. Downloading a PDF from a portal may require that user's existing portal session; reviewers do not need portal credentials for the included synthetic local tests.
@@ -29,7 +29,7 @@ Implementation and license review
 Original extension code is MIT-licensed. Bundled Mozilla PDF.js 5.4.394 and its local modifications remain Apache-2.0-licensed. LICENSE, THIRD-PARTY-NOTICES.txt, PDFJS-MODIFICATIONS.txt and vendor/PDFJS-LICENSE.txt are included in the upload. The PDF.js worker includes a prominent modification notice. The local patch extends read-only attachment enumeration to reachable file specifications and bounds decoded attachment sizes; it does not add document script execution or external code loading.
 
 Optional UNC network test
-The preparation bundle includes Windows-Netzwerk-Helfer-1.1.1.zip separately from the extension upload. Provide a public download URL to that helper before submitting. Its MIT source is included in the source package. The helper is currently unsigned. It requires .NET Framework 4.8 and installs only for the current Windows user without administrator rights; no browser safety checks should be disabled to install it.
+The preparation bundle includes Windows-Netzwerk-Helfer-1.2.0.zip separately from the extension upload. Provide a public download URL to that helper before submitting. Its MIT source is included in the source package. The helper is currently unsigned. It requires .NET Framework 4.8 and installs only for the current Windows user without administrator rights; no browser safety checks should be disabled to install it.
 
 Install the helper for the exact Store-assigned extension ID using the included interactive installer; copy that ID from edge://extensions. Then open a PDF on a UNC share, allow file URLs, and use Netzwerkzugriff aktivieren once in the sidebar. Subsequent network PDFs should be inspected without a file picker. For the real-Edge development test the optional permission was pre-granted only in the isolated test manifest; the shipped manifest declares it optional. For ordinary local-PDF certification the helper is not necessary.
 

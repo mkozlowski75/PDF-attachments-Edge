@@ -1,0 +1,396 @@
+{
+  "locale": {
+    "message": "en"
+  },
+  "extensionName": {
+    "message": "PDF Attachments for Edge"
+  },
+  "extensionDescription": {
+    "message": "Lists embedded PDF attachments beside the Edge viewer and opens them with their associated Windows application."
+  },
+  "commandOpenPanel": {
+    "message": "Show PDF attachments"
+  },
+  "panelTitle": {
+    "message": "PDF Attachments"
+  },
+  "currentDocument": {
+    "message": "For the open document"
+  },
+  "attachmentCountLabel": {
+    "message": "Number of attachments"
+  },
+  "documentLabel": {
+    "message": "Document"
+  },
+  "documentHeading": {
+    "message": "DOCUMENT"
+  },
+  "noDocument": {
+    "message": "No PDF loaded"
+  },
+  "openPdfHint": {
+    "message": "Open a PDF in the usual Edge viewer."
+  },
+  "refreshButton": {
+    "message": "Check current tab"
+  },
+  "chooseButton": {
+    "message": "Choose PDF"
+  },
+  "initialStatus": {
+    "message": "Checking the open PDF…"
+  },
+  "networkSetupLabel": {
+    "message": "Set up network access"
+  },
+  "networkSetupTitle": {
+    "message": "Read network PDFs automatically"
+  },
+  "networkSetupHelp": {
+    "message": "Set up the included Windows helper once and allow network access. The sidebar will then inspect the current network PDF automatically."
+  },
+  "networkEnableButton": {
+    "message": "Enable network access"
+  },
+  "passwordLabel": {
+    "message": "Password for this PDF"
+  },
+  "unlockButton": {
+    "message": "Unlock"
+  },
+  "cancelButton": {
+    "message": "Cancel"
+  },
+  "attachmentsLabel": {
+    "message": "Embedded attachments"
+  },
+  "emptyMessage": {
+    "message": "No embedded attachments found."
+  },
+  "helpSummary": {
+    "message": "How it works"
+  },
+  "helpSave": {
+    "message": "“Prepare” saves a copy of the selected attachment in the “PDF-Anhaenge” subfolder of your Downloads folder. “Open” then opens the file with its associated Windows application."
+  },
+  "helpOpen": {
+    "message": "The second click is needed because Edge only allows a file to be opened as a direct user action. Depending on your Edge settings, an additional prompt may appear."
+  },
+  "helpLocal": {
+    "message": "For local PDFs, enable “Allow access to file URLs” for this extension at edge://extensions. Alternatively, use “Choose PDF”."
+  },
+  "helpNetwork": {
+    "message": "For network shares, also install the Windows helper once and allow the optional Windows connection using “Enable network access”. The helper only reads network PDFs and does not modify any files."
+  },
+  "helpPortals": {
+    "message": "For portals with one-time links or PDFs embedded in a web page, select the downloaded PDF. The attachment list refers to the document source shown above."
+  },
+  "helpPrivacy": {
+    "message": "Processing takes place locally. The main document and the Edge viewer are not modified. For web PDFs, only the document URL is requested."
+  },
+  "helpLimits": {
+    "message": "Prepared copies remain in your Downloads folder. PDFs and individual attachments may each be up to 100 MB; all attachments combined may be up to 200 MB."
+  },
+  "footer": {
+    "message": "PDF Attachments · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfDocument": {
+    "message": "PDF document"
+  },
+  "attachment": {
+    "message": "Attachment"
+  },
+  "attachmentNumber": {
+    "message": "Attachment $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "bytes": {
+    "message": "$arg1$ B",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "kilobytes": {
+    "message": "$arg1$ KB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "megabytes": {
+    "message": "$arg1$ MB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "contentUnreadable": {
+    "message": "Content cannot be read"
+  },
+  "prepareButton": {
+    "message": "Prepare"
+  },
+  "openButton": {
+    "message": "Open"
+  },
+  "savingStatus": {
+    "message": "Saving…"
+  },
+  "showFolderButton": {
+    "message": "Show in folder"
+  },
+  "prepareAgainButton": {
+    "message": "Prepare again"
+  },
+  "savedFilename": {
+    "message": "Saved filename: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorOpen": {
+    "message": "Edge could not open the file: $arg1$ If needed, use “Show in folder”.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorSave": {
+    "message": "The attachment could not be saved: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorDownload": {
+    "message": "The download was interrupted or blocked by Edge."
+  },
+  "searchingAttachments": {
+    "message": "Looking for embedded attachments…"
+  },
+  "passwordIncorrect": {
+    "message": "The password is incorrect. Please try again."
+  },
+  "passwordRequired": {
+    "message": "This PDF is password-protected."
+  },
+  "errorAttachmentContent": {
+    "message": "The embedded content is missing or could not be read completely."
+  },
+  "attachmentsUnreadable": {
+    "message": "Attachments found: $arg1$. Not fully readable: $arg2$.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "attachmentsFound_one": {
+    "message": "$arg1$ attachment found. Prepare it before opening.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_few": {
+    "message": "$arg1$ attachments found. Prepare them before opening.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_many": {
+    "message": "$arg1$ attachments found. Prepare them before opening.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_other": {
+    "message": "$arg1$ attachments found. Prepare them before opening.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfChecked": {
+    "message": "The PDF has been checked."
+  },
+  "manualSource": {
+    "message": "Manually selected PDF · Linked to this tab"
+  },
+  "networkSource": {
+    "message": "PDF on a network share · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "localSource": {
+    "message": "Local PDF from the current tab"
+  },
+  "readingPdf": {
+    "message": "Reading PDF…"
+  },
+  "errorTooLarge": {
+    "message": "The PDF is larger than 100 MB."
+  },
+  "errorTooLargeChoose": {
+    "message": "The PDF is larger than 100 MB. Please choose a smaller file."
+  },
+  "errorFileAccess": {
+    "message": "Please allow access to file URLs at edge://extensions or use “Choose PDF”."
+  },
+  "errorReadAborted": {
+    "message": "Reading was cancelled or took too long. Please try again or choose a PDF."
+  },
+  "errorInspect": {
+    "message": "The PDF could not be inspected completely."
+  },
+  "errorInvalidPdf": {
+    "message": "The PDF is invalid or damaged."
+  },
+  "errorWithUnknownCount": {
+    "message": "$arg1$ The number of attachments is unknown.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noActiveTab": {
+    "message": "No active tab found. You can choose a PDF."
+  },
+  "selectDocumentHint": {
+    "message": "Open a PDF. If the URL does not end in .pdf, click “Check current tab”. Alternatively, choose a PDF."
+  },
+  "networkDeclined": {
+    "message": "Network access was not enabled. You can still choose a PDF manually."
+  },
+  "unlockingPdf": {
+    "message": "Unlocking PDF…"
+  },
+  "passwordCancelled": {
+    "message": "Password entry cancelled. The number of attachments is unknown."
+  },
+  "reloadingDocument": {
+    "message": "Reloading the document…"
+  },
+  "aborted": {
+    "message": "Cancelled"
+  },
+  "errorHttp": {
+    "message": "The PDF could not be loaded (HTTP $arg1$).",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorWebNotPdf": {
+    "message": "The URL does not return a PDF file. You may need to sign in or select the file again."
+  },
+  "errorLocalNotPdf": {
+    "message": "The selected file is not a readable PDF."
+  },
+  "errorLocalRead": {
+    "message": "The file could not be read from its URL. Please check that it is available or load it using “Choose PDF”."
+  },
+  "errorReadTimeout": {
+    "message": "Reading the PDF took too long."
+  },
+  "errorNetworkOnly": {
+    "message": "The Windows helper only supports PDF URLs on network shares."
+  },
+  "errorNetworkEnable": {
+    "message": "Please install the Windows helper once, then choose “Enable network access”. Network PDFs will then be inspected automatically."
+  },
+  "errorNetworkRestart": {
+    "message": "Network access is allowed, but the sidebar needs to restart. Please click “Enable network access”. The sidebar will reload automatically."
+  },
+  "errorNetworkTimeout": {
+    "message": "Accessing the network PDF took too long. Please check the connection to the share."
+  },
+  "errorHelperResponse": {
+    "message": "Invalid response from the Windows helper."
+  },
+  "errorNetworkRead": {
+    "message": "The network PDF could not be read."
+  },
+  "errorNetworkSize": {
+    "message": "The Windows helper reports an invalid or oversized PDF file."
+  },
+  "errorNetworkSequence": {
+    "message": "The network PDF was transferred incompletely or in the wrong order."
+  },
+  "errorNetworkBlock": {
+    "message": "Invalid PDF data block length."
+  },
+  "errorNetworkIncomplete": {
+    "message": "The network PDF was not transferred completely."
+  },
+  "errorNetworkHeader": {
+    "message": "The network file does not have a readable PDF header."
+  },
+  "errorHelperUnknown": {
+    "message": "Unknown response from the Windows helper."
+  },
+  "errorHelperUnavailable": {
+    "message": "The Windows helper for network PDFs is unavailable. Please set it up once or check that it is installed for this extension ID."
+  },
+  "errorHelperUnavailableDetail": {
+    "message": "$arg1$ ($arg2$)",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errorNetworkNotFound": {
+    "message": "The network PDF was not found. Please check the share and the URL."
+  },
+  "errorNetworkDenied": {
+    "message": "Access to the network PDF or this helper installation was denied."
+  },
+  "errorNetworkPathLong": {
+    "message": "The network path is too long for this Windows system."
+  },
+  "errorNetworkIo": {
+    "message": "The network PDF could not be read completely. Please check the connection to the share."
+  },
+  "errorNetworkChanged": {
+    "message": "The network PDF changed while being read or is too large."
+  },
+  "errorNetworkPath": {
+    "message": "The network PDF URL is invalid or is not supported by the Windows helper."
+  }
+}

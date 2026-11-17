@@ -89,7 +89,7 @@ try {
   const state = await evaluate("({count:document.getElementById('count').textContent,status:document.getElementById('status').textContent,source:document.getElementById('source-note').textContent})");
   result.state = state;
   assert.equal(state.count, "0", JSON.stringify(state));
-  assert.match(state.source, /Netzwerkfreigabe/);
+  assert.equal(state.source, await evaluate(`chrome.i18n.getMessage('networkSource', [${JSON.stringify(new URL(fileUrl).hostname)}])`));
   result.checks.push("Netzwerk-PDF aus dem aktiven Tab automatisch über Edge Native Messaging eingelesen");
   result.checks.push("PDF.js bestätigt keine Anhänge; kein Dateiauswahl-Aufruf erforderlich");
   const received = await evaluate(`import('./network.js').then(m => m.readNetworkPdf(${JSON.stringify(fileUrl)}, new AbortController().signal)).then(bytes => ({length:bytes.length,header:new TextDecoder().decode(bytes.subarray(0,8))}))`);
@@ -100,7 +100,7 @@ try {
   const missingApi = await evaluate("window.beforeNetworkReload=true; chrome.runtime.connectNative=undefined; typeof chrome.runtime.connectNative");
   assert.equal(missingApi, "undefined");
   await evaluate("document.getElementById('refresh').click()");
-  await poll(() => evaluate("document.getElementById('status').textContent.includes('Netzwerkzugriff aktivieren')"), "Hinweis bei fehlender Schnittstelle");
+  await poll(() => evaluate("document.getElementById('status').textContent.includes(chrome.i18n.getMessage('errorNetworkRestart'))"), "Hinweis bei fehlender Schnittstelle");
   await call("Runtime.evaluate", { expression: "document.getElementById('network-enable').click()", userGesture: true }, session);
   await poll(() => evaluate("document.documentElement?.dataset.ready === 'true' && window.beforeNetworkReload === undefined"), "Seitenleiste nach Freigabe neu starten");
   await poll(() => evaluate("document.getElementById('count').textContent === '0'"), "Netzwerk-PDF nach Neustart automatisch untersuchen");

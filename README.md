@@ -4,11 +4,17 @@ PDF-Anhänge für Microsoft Edge: eingebettete Dateien neben dem bisherigen PDF-
 
 [Installationspaket herunterladen](https://github.com/mkozlowski75/PDF-attachments-Edge/releases/latest) · [MIT-Lizenz für eigenen Code](LICENSE)
 
-Version 1.1.1 · Windows · geprüft mit Microsoft Edge 157
+Version 1.2.0 · Windows · geprüft mit Microsoft Edge 157
 
 Nach „Netzwerkzugriff aktivieren“ startet die Seitenleiste automatisch neu und untersucht die aktuelle Netzwerk-PDF. Der Windows-Helfer aus Version 1.1.0 kann weiterverwendet werden.
 
 Die Erweiterung ergänzt eine Seitenleiste neben dem eingebauten Edge-PDF-Viewer. Sie listet eingebettete Dateien mit ihrem Dateinamen, ihrer Größe und einer gegebenenfalls vorhandenen Beschreibung auf. Eine Vorschau wird nicht erzeugt. Das Hauptdokument, die Windows-PDF-Zuordnung und die Einstellungen des PDF-Viewers bleiben unverändert.
+
+## Sprachen
+
+Die Erweiterung unterstützt Deutsch, Englisch und Polnisch. Die Oberfläche, Hilfetexte, Passwortdialoge, Statusmeldungen und Erweiterungsbeschreibung richten sich automatisch nach der Anzeigesprache von Edge. Regionale Varianten wie en-US und pl-PL verwenden die jeweilige Übersetzung; für nicht unterstützte Sprachen wird Deutsch verwendet. Dateinamen und Beschreibungen aus der PDF werden unverändert angezeigt. Der optionale Windows-Helfer und seine Installation bleiben verwendbar.
+
+Zum Prüfen aller drei Oberflächensprachen in getrennten temporären Edge-Profilen: `npm run test:locales:edge`. Das normale Edge-Profil wird nicht verändert.
 
 ## Installation
 

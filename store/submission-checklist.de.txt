@@ -2,7 +2,7 @@ Veröffentlichung im Microsoft Edge Add-ons-Store
 Stand der Anforderungen: 17. November 2026
 
 Dateien und ihr Zweck
-- PDF-Anhaenge-Edge-1.1.1-store.zip: nur dieses ZIP im Feld für das Erweiterungspaket hochladen. manifest.json liegt direkt im ZIP-Hauptverzeichnis.
+- PDF-Anhaenge-Edge-1.2.0-store.zip: nur dieses ZIP im Feld für das Erweiterungspaket hochladen. manifest.json liegt direkt im ZIP-Hauptverzeichnis.
 - Store-Texte.de.txt: Name, Beschreibung, Suchbegriffe und Versionshinweise für die deutsche Store-Seite.
 - Berechtigungen-und-Zweck.en.txt: einzeln kopierbare Begründungen für die Privacy-Seite; englisch für die Zertifizierungsprüfung.
 - Datenverwendung.de.txt: tatsächliche Datenflüsse und Hinweise zu den Bestätigungsfeldern im Partner Center.
@@ -10,7 +10,7 @@ Dateien und ihr Zweck
 - Hinweise-fuer-Zertifizierung.en.txt: Testschritte und erwartete Ergebnisse.
 - Store-Logo-128.png: Logo für den Store. 128 x 128 Pixel entspricht dem dokumentierten Mindestmaß.
 - Pruefdateien: synthetische PDFs für die Prüfung, nicht Teil der installierten Erweiterung.
-- PDF-Anhaenge-Edge-1.1.1-MIT-Quellcode.zip: separate Quellen für eine freiwillige Quellcode-Veröffentlichung. Nicht als Erweiterungspaket hochladen.
+- PDF-Anhaenge-Edge-1.2.0-MIT-Quellcode.zip: separate Quellen für eine freiwillige Quellcode-Veröffentlichung. Nicht als Erweiterungspaket hochladen.
 
 Vor der Einreichung
 1. Herausgeber-/Organisationsname und Supportkontakt im Partner Center festlegen. Diese Angaben können öffentlich sichtbar werden.
@@ -30,7 +30,7 @@ Lizenzumfang
 Eigener Erweiterungscode und eigene Dokumentation: MIT. Enthaltene Mozilla-PDF.js-Dateien und ihre Anpassungen: Apache 2.0. Die Bibliothekslizenz wird durch die MIT-Lizenz nicht ersetzt. Im Store-ZIP liegen beide Lizenztexte sowie die Änderungs-/Drittanbieterhinweise. Es werden keine privaten Signierschlüssel mitgeliefert.
 
 Prüfstand
-Die lokale Anwendung wurde mit Edge 157 unter Windows getestet. Der Nutzer bestätigte vier angezeigte Anhänge und das Öffnen von Hinweise.txt in Notepad++ mit dem erwarteten Inhalt. Version 1.1.1 erweitert den Funktionscode um den optionalen, ausschließlich lesenden Windows-Helfer. Dessen öffentlicher Download muss vor der Store-Einreichung bereitstehen und die genaue Store-ID muss beim Installieren freigegeben werden. Automatisierte Paketprüfungen ersetzen keine Zertifizierung durch Microsoft.
+Die lokale Anwendung wurde mit Edge 157 unter Windows getestet. Der Nutzer bestätigte vier angezeigte Anhänge und das Öffnen von Hinweise.txt in Notepad++ mit dem erwarteten Inhalt. Version 1.2.0 ergänzt Englisch und Polnisch neben Deutsch. Der optionale, ausschließlich lesende Windows-Helfer bleibt unverändert kompatibel. Dessen öffentlicher Download muss vor der Store-Einreichung bereitstehen und die genaue Store-ID muss beim Installieren freigegeben werden. Automatisierte Paketprüfungen ersetzen keine Zertifizierung durch Microsoft.
 
 Offizielle Quellen
 https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/publish-extension
@@ -38,5 +38,5 @@ https://learn.microsoft.com/en-us/legal/microsoft-edge/extensions/developer-poli
 https://www.apache.org/licenses/LICENSE-2.0
 https://opensource.org/license/mit
 
-Netzwerk-Erweiterung 1.1.1
-Der Windows-Helfer wird separat als Windows-Netzwerk-Helfer-1.1.1.zip verteilt, nicht im Erweiterungs-Upload. In Partner Center die optionale Berechtigung nativeMessaging anhand der beigefügten Erklärung begründen. Die Store-Beschreibung und Datenschutzerklärung müssen die einmalige Einrichtung und den zusätzlichen SMB-Zugriff nennen. Der Helfer ist derzeit nicht digital signiert; eine signierte Installer-Verteilung ist vor breiter Veröffentlichung zu prüfen. Die öffentliche Installieren.cmd fragt die genaue Store-ID ab und autorisiert keine Entwicklungs-ID automatisch.
+Netzwerk-Erweiterung 1.2.0
+Der Windows-Helfer wird separat als Windows-Netzwerk-Helfer-1.2.0.zip verteilt, nicht im Erweiterungs-Upload. In Partner Center die optionale Berechtigung nativeMessaging anhand der beigefügten Erklärung begründen. Die Store-Beschreibung und Datenschutzerklärung müssen die einmalige Einrichtung und den zusätzlichen SMB-Zugriff nennen. Der Helfer ist derzeit nicht digital signiert; eine signierte Installer-Verteilung ist vor breiter Veröffentlichung zu prüfen. Die öffentliche Installieren.cmd fragt die genaue Store-ID ab und autorisiert keine Entwicklungs-ID automatisch.

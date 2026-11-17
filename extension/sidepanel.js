@@ -1,7 +1,12 @@
+import { t, attachmentCountMessage, localizeDocument } from "./i18n.js";
+
 import * as pdfjs from "./vendor/pdf.mjs";
 import { MAX_PDF_BYTES, MAX_ATTACHMENT_BYTES, withoutFragment, isSupportedUrl, looksLikePdfUrl,
   documentName, safeFilename, formatBytes, readWebPdf, readLocalPdf } from "./core.js";
 import { isNetworkFileUrl, readNetworkPdf, enableNetworkAccess } from "./network.js";
+
+localizeDocument();
+document.querySelector("footer").textContent = t("footer", chrome.runtime.getManifest().version);
 
 pdfjs.GlobalWorkerOptions.workerSrc = chrome.runtime.getURL("vendor/pdf.worker.mjs");
 const $ = id => document.getElementById(id);
@@ -37,8 +42,8 @@ function reset() {
   elements.attachments.replaceChildren();
   elements.empty.hidden = true;
   elements.count.textContent = "–";
-  elements["document-name"].textContent = "Keine PDF geladen";
-  elements["source-note"].textContent = "Öffne eine PDF im bisherigen Edge-Viewer.";
+  elements["document-name"].textContent = t("noDocument");
+  elements["source-note"].textContent = t("openPdfHint");
   setBadge("");
   return generation;
 }
@@ -55,19 +60,19 @@ function render() {
   for (const attachment of attachments) {
     const row = line("li", "attachment", "");
     row.append(line("h2", "filename", attachment.name));
-    row.append(line("div", "muted", attachment.content ? formatBytes(attachment.content.length) : "Inhalt nicht lesbar"));
+    row.append(line("div", "muted", attachment.content ? formatBytes(attachment.content.length) : t("contentUnreadable")));
     if (attachment.description) row.append(line("p", "muted description", attachment.description));
     const actions = line("div", "toolbar", "");
-    const button = line("button", "primary", attachment.downloadId == null ? "Bereitstellen" : "Öffnen");
+    const button = line("button", "primary", attachment.downloadId == null ? t("prepareButton") : t("openButton"));
     button.type = "button";
     button.disabled = attachment.busy || !attachment.content;
-    if (attachment.busy) button.textContent = "Wird gespeichert …";
+    if (attachment.busy) button.textContent = t("savingStatus");
     // Direkt im Klick-Handler öffnen: Ein asynchroner Download verliert die Benutzeraktion.
     button.addEventListener("click", () => {
       if (attachment.downloadId != null) {
         chrome.downloads.open(attachment.downloadId, () => {
           const error = chrome.runtime.lastError;
-          attachment.error = error ? `Edge konnte die Datei nicht öffnen: ${error.message} Bitte gegebenenfalls „Im Ordner anzeigen“ verwenden.` : "";
+          attachment.error = error ? t("errorOpen", error.message) : "";
           if (attachments.includes(attachment)) render();
         });
       } else {
@@ -76,18 +81,18 @@ function render() {
     });
     actions.append(button);
     if (attachment.downloadId != null) {
-      const folder = line("button", "", "Im Ordner anzeigen");
+      const folder = line("button", "", t("showFolderButton"));
       folder.type = "button";
       folder.addEventListener("click", () => chrome.downloads.show(attachment.downloadId));
       actions.append(folder);
-      const again = line("button", "", "Erneut bereitstellen");
+      const again = line("button", "", t("prepareAgainButton"));
       again.type = "button";
       again.addEventListener("click", () => { attachment.downloadId = null; prepareAttachment(attachment); });
       actions.append(again);
     }
     row.append(actions);
     if (attachment.savedName !== attachment.name) {
-      row.append(line("div", "muted row-note", `Dateiname beim Speichern: ${attachment.savedName}`));
+      row.append(line("div", "muted row-note", t("savedFilename", attachment.savedName)));
     }
     if (attachment.error) row.append(line("div", "row-error", attachment.error));
     elements.attachments.append(row);
@@ -111,10 +116,10 @@ async function prepareAttachment(attachment) {
     // Ein kleiner Download kann bereits vor Registrierung des Ereignisses fertig sein.
     const [item] = await chrome.downloads.search({ id });
     if (item?.state === "complete") finishDownload(id);
-    else if (item?.state === "interrupted") finishDownload(id, "Der Download wurde abgebrochen oder von Edge blockiert.");
+    else if (item?.state === "interrupted") finishDownload(id, t("errorDownload"));
   } catch (error) {
     attachment.busy = false;
-    attachment.error = `Der Anhang konnte nicht gespeichert werden: ${error.message}`;
+    attachment.error = t("errorSave", error.message);
     URL.revokeObjectURL(blobUrl);
   }
   if (attachments.includes(attachment)) render();
@@ -133,7 +138,7 @@ function finishDownload(id, error = "") {
 
 chrome.downloads.onChanged.addListener(change => {
   if (change.state?.current === "complete") finishDownload(change.id);
-  if (change.state?.current === "interrupted") finishDownload(change.id, "Der Download wurde abgebrochen oder von Edge blockiert.");
+  if (change.state?.current === "interrupted") finishDownload(change.id, t("errorDownload"));
 });
 chrome.downloads.onErased.addListener(id => {
   for (const attachment of attachments) {
@@ -144,7 +149,7 @@ chrome.downloads.onErased.addListener(id => {
 
 async function parsePdf(bytes, token) {
   if (token !== generation) return;
-  status("Eingebettete Anhänge werden gesucht …");
+  status(t("searchingAttachments"));
   const task = pdfjs.getDocument({ data: bytes, isEvalSupported: false, enableXfa: false,
     useSystemFonts: false, stopAtErrors: true });
   loadingTask = task;
@@ -152,7 +157,7 @@ async function parsePdf(bytes, token) {
     if (token !== generation) return;
     passwordCallback = callback;
     elements["password-form"].hidden = false;
-    status(reason === pdfjs.PasswordResponses.INCORRECT_PASSWORD ? "Das Passwort ist nicht richtig. Bitte erneut eingeben." : "Diese PDF ist passwortgeschützt.");
+    status(reason === pdfjs.PasswordResponses.INCORRECT_PASSWORD ? t("passwordIncorrect") : t("passwordRequired"));
     elements.password.focus();
   };
   try {
@@ -161,16 +166,16 @@ async function parsePdf(bytes, token) {
     if (token !== generation) return;
     let unreadable = 0;
     attachments = Object.values(result || {}).map((item, index) => {
-      const name = item.rawFilename || item.filename || `Anhang ${index + 1}`;
+      const name = item.rawFilename || item.filename || t("attachmentNumber", index + 1);
       const content = item.content instanceof Uint8Array && item.content.length <= MAX_ATTACHMENT_BYTES ? item.content : null;
       if (!content) unreadable++;
       return { name, savedName: safeFilename(name), description: item.description || "", content,
-        downloadId: null, busy: false, error: content ? "" : "Der eingebettete Inhalt fehlt oder konnte nicht vollständig gelesen werden." };
+        downloadId: null, busy: false, error: content ? "" : t("errorAttachmentContent") };
     });
     elements.count.textContent = String(attachments.length);
     elements.empty.hidden = attachments.length !== 0;
-    status(unreadable ? `${attachments.length} Anhänge gefunden. ${unreadable} davon konnten nicht vollständig gelesen werden.` :
-      attachments.length ? `${attachments.length} ${attachments.length === 1 ? "Anhang gefunden" : "Anhänge gefunden"}. Zum Öffnen zuerst bereitstellen.` : "Die PDF wurde geprüft.", unreadable > 0);
+    status(unreadable ? t("attachmentsUnreadable", [attachments.length, unreadable]) :
+      attachments.length ? attachmentCountMessage(attachments.length) : t("pdfChecked"), unreadable > 0);
     setBadge(String(attachments.length));
     render();
   } finally {
@@ -189,21 +194,21 @@ async function loadPdf({ url, file, tab }) {
   const token = reset();
   source = { name: file?.name || documentName(url), url, session: crypto.randomUUID() };
   elements["document-name"].textContent = source.name;
-  elements["source-note"].textContent = file ? "Manuell ausgewählte PDF · Zuordnung zu diesem Tab" :
-    isNetworkFileUrl(url) ? `PDF auf Netzwerkfreigabe · ${new URL(url).hostname}` :
-      new URL(url).protocol === "file:" ? "Lokale PDF aus dem aktuellen Tab" : new URL(url).origin;
-  status("PDF wird gelesen …");
+  elements["source-note"].textContent = file ? t("manualSource") :
+    isNetworkFileUrl(url) ? t("networkSource", new URL(url).hostname) :
+      new URL(url).protocol === "file:" ? t("localSource") : new URL(url).origin;
+  status(t("readingPdf"));
   controller = new AbortController();
   const currentController = controller;
-  const timeout = setTimeout(() => currentController.abort(new Error("Zeitüberschreitung")), 30000);
+  const timeout = setTimeout(() => currentController.abort(new Error(t("errorReadTimeout"))), 30000);
   try {
     let bytes;
     if (file) {
-      if (file.size > MAX_PDF_BYTES) throw new Error("Die PDF ist größer als 100 MB.");
+      if (file.size > MAX_PDF_BYTES) throw new Error(t("errorTooLarge"));
       bytes = new Uint8Array(await file.arrayBuffer());
     } else if (new URL(url).protocol === "file:") {
       const allowed = await chrome.extension.isAllowedFileSchemeAccess();
-      if (!allowed) throw new Error("Bitte unter edge://extensions den Zugriff auf Datei-URLs zulassen oder „PDF auswählen“ verwenden.");
+      if (!allowed) throw new Error(t("errorFileAccess"));
       bytes = isNetworkFileUrl(url) ? await readNetworkPdf(url, currentController.signal) : await readLocalPdf(url, currentController.signal);
     } else {
       bytes = await readWebPdf(url, currentController.signal);
@@ -216,9 +221,9 @@ async function loadPdf({ url, file, tab }) {
     elements.empty.hidden = true;
     setBadge("?");
     elements["network-setup"].hidden = !isNetworkFileUrl(url);
-    const message = error.name === "AbortError" ? "Das Lesen wurde abgebrochen oder dauerte zu lange. Bitte erneut prüfen oder eine PDF auswählen." :
-      error.message || "Die PDF konnte nicht vollständig untersucht werden.";
-    status(`${message} Die Anzahl der Anhänge ist unbekannt.`, true);
+    const message = error.name === "AbortError" ? t("errorReadAborted") :
+      error.name === "InvalidPDFException" ? t("errorInvalidPdf") : error.message || t("errorInspect");
+    status(t("errorWithUnknownCount", message), true);
   } finally {
     clearTimeout(timeout);
   }
@@ -226,7 +231,7 @@ async function loadPdf({ url, file, tab }) {
 
 async function selectActiveTab(force = false) {
   const [tab] = await chrome.tabs.query({ active: true, windowId });
-  if (!tab) { reset(); status("Kein aktiver Tab gefunden. Du kannst eine PDF auswählen."); return; }
+  if (!tab) { reset(); status(t("noActiveTab")); return; }
   const previous = activeTab;
   activeTab = tab;
   if (!force && previous?.id === tab.id && withoutFragment(previous.url) === withoutFragment(tab.url) && source) return;
@@ -237,7 +242,7 @@ async function selectActiveTab(force = false) {
   if (isSupportedUrl(url) && (force || looksLikePdfUrl(url) || withoutFragment(recorded?.url) === url)) {
     await loadPdf({ url, tab });
   } else {
-    status("Öffne eine PDF. Falls die Adresse keine PDF-Endung hat, klicke auf „Aktuellen Tab prüfen“. Alternativ kannst du eine PDF auswählen.");
+    status(t("selectDocumentHint"));
   }
 }
 
@@ -247,7 +252,7 @@ elements["network-enable"].addEventListener("click", () => {
   // Die optionale Windows-Anbindung wird nur durch diese ausdrückliche Aktion erlaubt.
   enableNetworkAccess().then(granted => {
     if (granted) return;
-    status("Der Netzwerkzugriff wurde nicht aktiviert. Du kannst weiterhin eine PDF ausdrücklich auswählen.", true);
+    status(t("networkDeclined"), true);
   }).catch(error => status(error.message, true));
 });
 elements.file.addEventListener("change", () => {
@@ -269,12 +274,12 @@ elements["password-form"].addEventListener("submit", event => {
   const password = elements.password.value;
   elements.password.value = "";
   elements["password-form"].hidden = true;
-  status("PDF wird entsperrt …");
+  status(t("unlockingPdf"));
   callback(password);
 });
 elements["password-cancel"].addEventListener("click", () => {
   reset();
-  status("Passworteingabe abgebrochen. Die Anzahl der Anhänge ist unbekannt.");
+  status(t("passwordCancelled"));
   elements.count.textContent = "?";
   setBadge("?");
 });
@@ -287,7 +292,7 @@ chrome.tabs.onUpdated.addListener((id, change) => {
   // Ein reiner Wechsel von #page=... verändert dagegen keine Dateiinhalte.
   if (change.status === "loading" || (change.url && withoutFragment(change.url) !== withoutFragment(activeTab.url))) {
     reset();
-    status("Das Dokument wird neu geladen …");
+    status(t("reloadingDocument"));
   }
   if (change.url || change.status === "complete") {
     selectActiveTab().catch(error => status(error.message, true));

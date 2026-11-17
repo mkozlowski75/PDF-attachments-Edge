@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PDF-Anhänge für Edge",
-  "version": "1.1.1",
-  "description": "Zeigt eingebettete PDF-Anhänge neben dem Edge-Viewer und öffnet sie mit der zugeordneten Windows-Anwendung.",
+  "name": "__MSG_extensionName__",
+  "version": "1.2.0",
+  "description": "__MSG_extensionDescription__",
   "minimum_chrome_version": "124",
   "permissions": [
     "sidePanel",
@@ -22,7 +22,7 @@
     "type": "module"
   },
   "action": {
-    "default_title": "PDF-Anhänge anzeigen",
+    "default_title": "__MSG_commandOpenPanel__",
     "default_icon": {
       "16": "icons/16.png",
       "32": "icons/32.png"
@@ -45,11 +45,12 @@
       "suggested_key": {
         "default": "Alt+Shift+A"
       },
-      "description": "PDF-Anhänge anzeigen"
+      "description": "__MSG_commandOpenPanel__"
     }
   },
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyDYjcZH3NXqHqL+8I/eyLSX8VKLuqtelUXzHpronAKyWwdlme86lqm5ieZDSBudoHe3YzA69tc915CFKmkEQ1axljoyG3h43n92K95/Zvs6TomlbKAdP+o4YqgG2O55boU48oTrmARBh2Q31VZgamu1npqdkGMLh2mIqC+fMgKuEVHl1lqkoXXAZXoxE7e9joaYY5GiOc9efyAZsF0vzYBDc0NrypT27mfnd/jzUFwOYeGEObN+y2gl12Wjrm1glzg28maMDoLc/x0wt+D4xfFGOt6s18z2IztXoykDWvGsWq1MdOlNWH+YcD3fgcMpqjXK3sMy6W7jDVQMAZYsbjwIDAQAB",
   "optional_permissions": [
     "nativeMessaging"
-  ]
+  ],
+  "default_locale": "de"
 }

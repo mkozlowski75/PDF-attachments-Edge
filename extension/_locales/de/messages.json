@@ -1,0 +1,396 @@
+{
+  "locale": {
+    "message": "de"
+  },
+  "extensionName": {
+    "message": "PDF-Anhänge für Edge"
+  },
+  "extensionDescription": {
+    "message": "Zeigt eingebettete PDF-Anhänge neben dem Edge-Viewer und öffnet sie mit der zugeordneten Windows-Anwendung."
+  },
+  "commandOpenPanel": {
+    "message": "PDF-Anhänge anzeigen"
+  },
+  "panelTitle": {
+    "message": "PDF-Anhänge"
+  },
+  "currentDocument": {
+    "message": "Zum geöffneten Dokument"
+  },
+  "attachmentCountLabel": {
+    "message": "Anzahl der Anhänge"
+  },
+  "documentLabel": {
+    "message": "Dokument"
+  },
+  "documentHeading": {
+    "message": "DOKUMENT"
+  },
+  "noDocument": {
+    "message": "Keine PDF geladen"
+  },
+  "openPdfHint": {
+    "message": "Öffne eine PDF im bisherigen Edge-Viewer."
+  },
+  "refreshButton": {
+    "message": "Aktuellen Tab prüfen"
+  },
+  "chooseButton": {
+    "message": "PDF auswählen"
+  },
+  "initialStatus": {
+    "message": "Die geöffnete PDF wird geprüft …"
+  },
+  "networkSetupLabel": {
+    "message": "Netzwerkzugriff einrichten"
+  },
+  "networkSetupTitle": {
+    "message": "Netzwerkfreigaben automatisch lesen"
+  },
+  "networkSetupHelp": {
+    "message": "Einmalig den mitgelieferten Windows-Helfer einrichten und den Netzwerkzugriff erlauben. Danach untersucht die Seitenleiste die aktuelle Netzwerk-PDF automatisch."
+  },
+  "networkEnableButton": {
+    "message": "Netzwerkzugriff aktivieren"
+  },
+  "passwordLabel": {
+    "message": "Passwort für diese PDF"
+  },
+  "unlockButton": {
+    "message": "Entsperren"
+  },
+  "cancelButton": {
+    "message": "Abbrechen"
+  },
+  "attachmentsLabel": {
+    "message": "Eingebettete Anhänge"
+  },
+  "emptyMessage": {
+    "message": "Keine eingebetteten Anhänge gefunden."
+  },
+  "helpSummary": {
+    "message": "So funktioniert’s"
+  },
+  "helpSave": {
+    "message": "„Bereitstellen“ speichert eine Kopie des gewählten Anhangs im Downloadordner unter „PDF-Anhaenge“. Danach öffnet „Öffnen“ die Datei über ihre Windows-Zuordnung."
+  },
+  "helpOpen": {
+    "message": "Der zweite Klick ist nötig, weil Edge das Öffnen einer Datei nur als direkte Benutzeraktion erlaubt. Je nach Edge-Einstellungen erscheint eine zusätzliche Rückfrage."
+  },
+  "helpLocal": {
+    "message": "Für lokale PDFs: Unter edge://extensions bei dieser Erweiterung „Zugriff auf Datei-URLs zulassen“ aktivieren. Alternativ „PDF auswählen“ verwenden."
+  },
+  "helpNetwork": {
+    "message": "Für Netzwerkfreigaben zusätzlich einmalig den Windows-Helfer installieren und über „Netzwerkzugriff aktivieren“ die optionale Windows-Anbindung erlauben. Der Helfer liest ausschließlich Netzwerk-PDFs und verändert keine Dateien."
+  },
+  "helpPortals": {
+    "message": "Bei Portalen mit Einmal-Links oder PDFs innerhalb einer Webseite bitte die heruntergeladene PDF auswählen. Die angezeigte Dokumentquelle ist für die Anhangsliste maßgeblich."
+  },
+  "helpPrivacy": {
+    "message": "Die Verarbeitung erfolgt lokal. Das Hauptdokument und der Edge-Viewer werden nicht verändert. Bei Web-PDFs wird ausschließlich die Dokumentadresse abgerufen."
+  },
+  "helpLimits": {
+    "message": "Bereitgestellte Kopien bleiben im Downloadordner. PDFs und einzelne Anhänge dürfen jeweils bis zu 100 MB groß sein; alle Anhänge zusammen bis zu 200 MB."
+  },
+  "footer": {
+    "message": "PDF-Anhänge · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfDocument": {
+    "message": "PDF-Dokument"
+  },
+  "attachment": {
+    "message": "Anhang"
+  },
+  "attachmentNumber": {
+    "message": "Anhang $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "bytes": {
+    "message": "$arg1$ Byte",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "kilobytes": {
+    "message": "$arg1$ KB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "megabytes": {
+    "message": "$arg1$ MB",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "contentUnreadable": {
+    "message": "Inhalt nicht lesbar"
+  },
+  "prepareButton": {
+    "message": "Bereitstellen"
+  },
+  "openButton": {
+    "message": "Öffnen"
+  },
+  "savingStatus": {
+    "message": "Wird gespeichert …"
+  },
+  "showFolderButton": {
+    "message": "Im Ordner anzeigen"
+  },
+  "prepareAgainButton": {
+    "message": "Erneut bereitstellen"
+  },
+  "savedFilename": {
+    "message": "Dateiname beim Speichern: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorOpen": {
+    "message": "Edge konnte die Datei nicht öffnen: $arg1$ Bitte gegebenenfalls „Im Ordner anzeigen“ verwenden.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorSave": {
+    "message": "Der Anhang konnte nicht gespeichert werden: $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorDownload": {
+    "message": "Der Download wurde abgebrochen oder von Edge blockiert."
+  },
+  "searchingAttachments": {
+    "message": "Eingebettete Anhänge werden gesucht …"
+  },
+  "passwordIncorrect": {
+    "message": "Das Passwort ist nicht richtig. Bitte erneut eingeben."
+  },
+  "passwordRequired": {
+    "message": "Diese PDF ist passwortgeschützt."
+  },
+  "errorAttachmentContent": {
+    "message": "Der eingebettete Inhalt fehlt oder konnte nicht vollständig gelesen werden."
+  },
+  "attachmentsUnreadable": {
+    "message": "Anhänge gefunden: $arg1$. Davon konnten $arg2$ nicht vollständig gelesen werden.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "attachmentsFound_one": {
+    "message": "$arg1$ Anhang gefunden. Zum Öffnen zuerst bereitstellen.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_few": {
+    "message": "$arg1$ Anhänge gefunden. Zum Öffnen zuerst bereitstellen.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_many": {
+    "message": "$arg1$ Anhänge gefunden. Zum Öffnen zuerst bereitstellen.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "attachmentsFound_other": {
+    "message": "$arg1$ Anhänge gefunden. Zum Öffnen zuerst bereitstellen.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pdfChecked": {
+    "message": "Die PDF wurde geprüft."
+  },
+  "manualSource": {
+    "message": "Manuell ausgewählte PDF · Zuordnung zu diesem Tab"
+  },
+  "networkSource": {
+    "message": "PDF auf Netzwerkfreigabe · $arg1$",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "localSource": {
+    "message": "Lokale PDF aus dem aktuellen Tab"
+  },
+  "readingPdf": {
+    "message": "PDF wird gelesen …"
+  },
+  "errorTooLarge": {
+    "message": "Die PDF ist größer als 100 MB."
+  },
+  "errorTooLargeChoose": {
+    "message": "Die PDF ist größer als 100 MB. Bitte eine kleinere Datei auswählen."
+  },
+  "errorFileAccess": {
+    "message": "Bitte unter edge://extensions den Zugriff auf Datei-URLs zulassen oder „PDF auswählen“ verwenden."
+  },
+  "errorReadAborted": {
+    "message": "Das Lesen wurde abgebrochen oder dauerte zu lange. Bitte erneut prüfen oder eine PDF auswählen."
+  },
+  "errorInspect": {
+    "message": "Die PDF konnte nicht vollständig untersucht werden."
+  },
+  "errorInvalidPdf": {
+    "message": "Die PDF ist ungültig oder beschädigt."
+  },
+  "errorWithUnknownCount": {
+    "message": "$arg1$ Die Anzahl der Anhänge ist unbekannt.",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noActiveTab": {
+    "message": "Kein aktiver Tab gefunden. Du kannst eine PDF auswählen."
+  },
+  "selectDocumentHint": {
+    "message": "Öffne eine PDF. Falls die Adresse keine PDF-Endung hat, klicke auf „Aktuellen Tab prüfen“. Alternativ kannst du eine PDF auswählen."
+  },
+  "networkDeclined": {
+    "message": "Der Netzwerkzugriff wurde nicht aktiviert. Du kannst weiterhin eine PDF ausdrücklich auswählen."
+  },
+  "unlockingPdf": {
+    "message": "PDF wird entsperrt …"
+  },
+  "passwordCancelled": {
+    "message": "Passworteingabe abgebrochen. Die Anzahl der Anhänge ist unbekannt."
+  },
+  "reloadingDocument": {
+    "message": "Das Dokument wird neu geladen …"
+  },
+  "aborted": {
+    "message": "Abgebrochen"
+  },
+  "errorHttp": {
+    "message": "Die PDF konnte nicht geladen werden (HTTP $arg1$).",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorWebNotPdf": {
+    "message": "Die Adresse liefert keine PDF-Datei. Möglicherweise ist eine Anmeldung oder eine erneute Dateiauswahl nötig."
+  },
+  "errorLocalNotPdf": {
+    "message": "Die ausgewählte Datei ist keine lesbare PDF."
+  },
+  "errorLocalRead": {
+    "message": "Die Datei konnte über ihre Adresse nicht gelesen werden. Bitte die Erreichbarkeit prüfen oder die PDF über „PDF auswählen“ laden."
+  },
+  "errorReadTimeout": {
+    "message": "Das Lesen der PDF hat zu lange gedauert."
+  },
+  "errorNetworkOnly": {
+    "message": "Der Windows-Helfer ist nur für PDF-Adressen auf Netzwerkfreigaben vorgesehen."
+  },
+  "errorNetworkEnable": {
+    "message": "Bitte den Windows-Helfer einmalig installieren und anschließend „Netzwerkzugriff aktivieren“ wählen. Danach werden Netzwerk-PDFs automatisch untersucht."
+  },
+  "errorNetworkRestart": {
+    "message": "Der Netzwerkzugriff ist freigegeben, aber die Seitenleiste muss neu gestartet werden. Bitte „Netzwerkzugriff aktivieren“ anklicken. Die Seitenleiste wird dabei automatisch neu geladen."
+  },
+  "errorNetworkTimeout": {
+    "message": "Der Zugriff auf die Netzwerk-PDF hat zu lange gedauert. Bitte die Verbindung zur Freigabe prüfen."
+  },
+  "errorHelperResponse": {
+    "message": "Ungültige Antwort des Windows-Helfers."
+  },
+  "errorNetworkRead": {
+    "message": "Die Netzwerk-PDF konnte nicht gelesen werden."
+  },
+  "errorNetworkSize": {
+    "message": "Der Windows-Helfer meldet eine ungültige oder zu große PDF-Datei."
+  },
+  "errorNetworkSequence": {
+    "message": "Die Netzwerk-PDF wurde nicht vollständig oder in falscher Reihenfolge übertragen."
+  },
+  "errorNetworkBlock": {
+    "message": "Ungültige Länge eines PDF-Datenblocks."
+  },
+  "errorNetworkIncomplete": {
+    "message": "Die Netzwerk-PDF wurde nicht vollständig übertragen."
+  },
+  "errorNetworkHeader": {
+    "message": "Die Netzwerkdatei enthält keinen lesbaren PDF-Dateikopf."
+  },
+  "errorHelperUnknown": {
+    "message": "Unbekannte Antwort des Windows-Helfers."
+  },
+  "errorHelperUnavailable": {
+    "message": "Der Windows-Helfer für Netzwerk-PDFs ist nicht erreichbar. Bitte den Helfer einmalig einrichten oder die Installation für diese Erweiterungs-ID prüfen."
+  },
+  "errorHelperUnavailableDetail": {
+    "message": "$arg1$ ($arg2$)",
+    "placeholders": {
+      "arg1": {
+        "content": "$1"
+      },
+      "arg2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errorNetworkNotFound": {
+    "message": "Die Netzwerk-PDF wurde nicht gefunden. Bitte die Freigabe und die Adresse prüfen."
+  },
+  "errorNetworkDenied": {
+    "message": "Der Zugriff auf die Netzwerk-PDF oder diese Helferinstallation wurde nicht erlaubt."
+  },
+  "errorNetworkPathLong": {
+    "message": "Der Netzwerkpfad ist für dieses Windows-System zu lang."
+  },
+  "errorNetworkIo": {
+    "message": "Die Netzwerk-PDF konnte nicht vollständig gelesen werden. Bitte die Verbindung zur Freigabe prüfen."
+  },
+  "errorNetworkChanged": {
+    "message": "Die Netzwerk-PDF wurde während des Lesens verändert oder ist zu groß."
+  },
+  "errorNetworkPath": {
+    "message": "Die Netzwerk-PDF-Adresse ist ungültig oder wird vom Windows-Helfer nicht unterstützt."
+  }
+}

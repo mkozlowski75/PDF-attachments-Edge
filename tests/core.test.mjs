@@ -1,3 +1,4 @@
+import "./helpers/i18n.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { safeFilename, readWebPdf, withoutFragment, looksLikePdfUrl, isSupportedUrl, MAX_PDF_BYTES } from "../extension/core.js";
